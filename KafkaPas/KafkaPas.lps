@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="10"/>
+    <BuildModes Active="ReleaseWin64"/>
+    <Units Count="11">
+      <Unit0>
+        <Filename Value="KafkaPas.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="4"/>
+        <CursorPos X="135" Y="13"/>
+        <UsageCount Value="48"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="formmainkafkatest.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMainKafkaTest"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="FormMainKafkaTest"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="122"/>
+        <CursorPos X="68" Y="136"/>
+        <UsageCount Value="48"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="kafka.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Kafka"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="364"/>
+        <CursorPos X="3" Y="385"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="kafkaclass.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="KafkaClass"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="430"/>
+        <CursorPos X="21" Y="451"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="rdkafka_pas.pas"/>
+        <EditorIndex Value="5"/>
+        <CursorPos X="136" Y="9"/>
+        <UsageCount Value="45"/>
+        <Bookmarks Count="2">
+          <Item0 X="38" Y="382" ID="8"/>
+          <Item1 Y="518" ID="9"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="rdkafka.pas"/>
+        <EditorIndex Value="10"/>
+        <TopLine Value="3073"/>
+        <CursorPos Y="3099"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="C:\codetyphon\fpcsrc\rtl\win\sysosh.inc"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="8"/>
+        <CursorPos X="3" Y="23"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="C:\codetyphon\fpcsrc\rtl\objpas\sysutils\sysutilh.inc"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="48"/>
+        <CursorPos X="4" Y="63"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="C:\codetyphon\fpcsrc\packages\rtl-extra\src\win\winsock.pp"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="31"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="C:\codetyphon\fpcsrc\rtl\inc\ctypes.pp"/>
+        <EditorIndex Value="6"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="C:\codetyphon\typhon\lcl\forms.pp"/>
+        <UnitName Value="Forms"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="1454"/>
+        <CursorPos X="15" Y="1473"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit10>
+    </Units>
+    <JumpHistory Count="29" HistoryIndex="28">
+      <Position1>
+        <Filename Value="kafkaclass.pas"/>
+        <Caret Line="66" Column="27" TopLine="45"/>
+      </Position1>
+      <Position2>
+        <Filename Value="kafkaclass.pas"/>
+        <Caret Line="685" TopLine="677"/>
+      </Position2>
+      <Position3>
+        <Filename Value="kafkaclass.pas"/>
+        <Caret Line="120" Column="56" TopLine="99"/>
+      </Position3>
+      <Position4>
+        <Filename Value="kafkaclass.pas"/>
+        <Caret Line="849" Column="32" TopLine="833"/>
+      </Position4>
+      <Position5>
+        <Filename Value="kafkaclass.pas"/>
+        <Caret Line="801" Column="18" TopLine="771"/>
+      </Position5>
+      <Position6>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="153" Column="122" TopLine="119"/>
+      </Position6>
+      <Position7>
+        <Filename Value="kafkaclass.pas"/>
+        <Caret Line="701" Column="50" TopLine="678"/>
+      </Position7>
+      <Position8>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="153" Column="111" TopLine="119"/>
+      </Position8>
+      <Position9>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="50" Column="34" TopLine="29"/>
+      </Position9>
+      <Position10>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="138" Column="146" TopLine="108"/>
+      </Position10>
+      <Position11>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="142" Column="124" TopLine="128"/>
+      </Position11>
+      <Position12>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="39" Column="15" TopLine="22"/>
+      </Position12>
+      <Position13>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="56" Column="28" TopLine="20"/>
+      </Position13>
+      <Position14>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="229" TopLine="139"/>
+      </Position14>
+      <Position15>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="108" Column="37" TopLine="104"/>
+      </Position15>
+      <Position16>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="111" Column="41" TopLine="87"/>
+      </Position16>
+      <Position17>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="114" Column="81" TopLine="87"/>
+      </Position17>
+      <Position18>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="227" Column="44" TopLine="200"/>
+      </Position18>
+      <Position19>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="204" Column="14" TopLine="188"/>
+      </Position19>
+      <Position20>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="241" Column="30" TopLine="208"/>
+      </Position20>
+      <Position21>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="231" Column="37" TopLine="212"/>
+      </Position21>
+      <Position22>
+        <Filename Value="kafkaclass.pas"/>
+        <Caret Line="928" Column="3" TopLine="920"/>
+      </Position22>
+      <Position23>
+        <Filename Value="kafka.pas"/>
+        <Caret Line="385" Column="3" TopLine="364"/>
+      </Position23>
+      <Position24>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="231" Column="32" TopLine="210"/>
+      </Position24>
+      <Position25>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="236" Column="141" TopLine="213"/>
+      </Position25>
+      <Position26>
+        <Filename Value="formmainkafkatest.pas"/>
+      </Position26>
+      <Position27>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="57" Column="23" TopLine="23"/>
+      </Position27>
+      <Position28>
+        <Filename Value="KafkaPas.lpr"/>
+        <Caret Line="13" Column="135"/>
+      </Position28>
+      <Position29>
+        <Filename Value="formmainkafkatest.pas"/>
+        <Caret Line="226" Column="32" TopLine="163"/>
+      </Position29>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>

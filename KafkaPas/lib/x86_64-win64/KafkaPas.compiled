@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\codetyphon\fpc\fpc32\bin\i386-win32\fpc.exe" Date="1246330200"/>
+  <Params Value=" -Twin64 -Px86_64 -MObjFPC -Scghi -O1 -g -gl -WG -l -vewnhibq -FiG:\sb\src\branch0650\KafkaGate\KafkaPas\lib\x86_64-win64 -FuC:\codetyphon\typhon\lcl\units\x86_64-win64\win32 -FuC:\codetyphon\typhon\lcl\units\x86_64-win64 -FuC:\codetyphon\typhon\components\BaseUtils\lib\x86_64-win64 -FuC:\codetyphon\typhon\packager\units\x86_64-win64 -FuG:\sb\src\branch0650\KafkaGate\KafkaPas\ -FUG:\sb\src\branch0650\KafkaGate\KafkaPas\lib\x86_64-win64\ -dLCL -dLCLwin32 KafkaPas.lpr"/>
+</CONFIG>
