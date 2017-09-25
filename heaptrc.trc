@@ -1,0 +1,7 @@
+G:\sb\src\branch0650\KafkaGate\KafkaGate.exe 
+Heap dump by heaptrc unit
+33631 memory blocks allocated : 559232967/559375064
+33631 memory blocks freed     : 559232967/559375064
+0 unfreed memory blocks : 0
+True heap size : 425984 (112 used in System startup)
+True free heap : 425872
