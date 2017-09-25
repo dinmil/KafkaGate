@@ -14,6 +14,7 @@ type
   TOnKafkaMessageReceived = procedure(InMessage: String; InKey: String; OutMsg: Prd_kafka_message_t) of object;
   TOnKafkaMessageEOF = procedure(InMessage: String) of object;
   TOnKafkaMessageErr = procedure(InError: String) of object;
+  TOnKafkaTick = procedure(InWhat: String) of object;
 
   TKafkaSetup = record
     broker: String;           // '172.16.20.210:9092'
@@ -62,10 +63,14 @@ type
     _OnKafkaMessageReceived: TOnKafkaMessageReceived;
     _OnKafkaMessageEOF: TOnKafkaMessageEOF;
     _OnKafkaMessageErr: TOnKafkaMessageErr;
+    _OnKafkaTick: TOnKafkaTick;
 
     _IsConsole: Boolean;
 
     _IsProducer: Boolean;
+
+    _FormatSettings: TFormatSettings;
+
 
     constructor Create(InIsConsole: Boolean);
     destructor Destroy; override;
@@ -102,7 +107,7 @@ type
     procedure ProduceMessage(var InKey, InMessage: String);
 
 
-    procedure WaitForMessages;
+    procedure WaitForMessages(InMaxMessageLength: Integer);
 
     procedure CloseConsumer;
     procedure FreePartitionList;
@@ -111,7 +116,9 @@ type
     procedure StartConsumer(InKafkaSetup: TKafkaSetup;
                             InOnKafkaMessageReceived: TOnKafkaMessageReceived;
                             InOnKafkaMessageEOF: TOnKafkaMessageEOF;
-                            INOnKafkaMessageErr: TOnKafkaMessageErr
+                            InOnKafkaMessageErr: TOnKafkaMessageErr;
+                            InOnKafkaTick: TOnKafkaTick;
+                            InMaxMessageSize: Integer
       );
 
     procedure StartProducer(InKafkaSetup: TKafkaSetup;InProcCallBack: TProc_dr_msg_cb);
@@ -152,7 +159,7 @@ implementation
 procedure KafkaWriteStatus(InString: String; InToStdOut: Boolean);
 begin
   if InToStdOut then begin;
-    Writeln(InString);
+    Writeln(FormatDateTime('yyyy-mm-dd hh:nn:ss.zzz', Now) + ': ' + InString);
   end;
 end;
 
@@ -232,6 +239,15 @@ end;
 constructor TKafkaClass.Create(InIsConsole: Boolean);
 begin
   inherited Create;
+  _FormatSettings.DecimalSeparator := '.';
+  _FormatSettings.ThousandSeparator := ',';
+  _FormatSettings.DateSeparator:='-';
+  _FormatSettings.TimeSeparator:=':';
+  _FormatSettings.LongDateFormat:='yyyy-mm-dd';
+  _FormatSettings.ShortDateFormat:='yyyy-mm-dd';
+  _FormatSettings.LongTimeFormat:='hh:nn:ss.zzz';
+  _FormatSettings.ShortTimeFormat:='hh:nn:ss.zzz';
+
   _IsConsole := InIsConsole;
   _IsProducer := False;
 end;
@@ -267,10 +283,14 @@ begin
     MyFormatSettings.ShortDateFormat:='yyyy-mm-dd';
     MyFormatSettings.LongTimeFormat:='hh:nn:ss.zzz';
     MyFormatSettings.ShortTimeFormat:='hh:nn:ss.zzz';
-    MyMsgTime1 := StrToDateTime(InMessage, MyFormatSettings);
+    try
+      MyMsgTime1 := StrToDateTime(InMessage, MyFormatSettings);
+    except
+      MyMsgTime1 := Now;
+    end;
     MyMsgTime2 := Now;
     MyDelta := Trunc((MyMsgTime2 - MyMsgTime1) / OneMillisecond);
-    KafkaWriteStatus('RecvMessage: ' + Pchar(OutMsg^.key) + '=' + InMessage + '; Delta: ' + IntToStr(MyDelta), _IsConsole);
+    KafkaWriteStatus('RecvMessage: ' + InKey + '=' + InMessage + '; Delta: ' + IntToStr(MyDelta), _IsConsole);
   except
     on E: Exception do begin
       KafkaWriteStatus('RecvMessageError: ' + E.Message + '; Key: ' + InKey + '=' + InMessage, _IsConsole);
@@ -655,13 +675,21 @@ begin
   end;
 end;
 
-procedure TKafkaClass.WaitForMessages;
+procedure TKafkaClass.WaitForMessages(InMaxMessageLength: Integer);
 var MyMessage: String;
     MyKey: String;
 begin
   _BStop := False;
+  if _OnKafkaTick <> nil then begin
+    _OnKafkaTick('WAITFORMESSAGES-START');
+  end;
   while true do begin
-    if _BStop = true then Break;
+    if _BStop = true then begin
+      if _OnKafkaTick <> nil then begin
+        _OnKafkaTick('WAITFORMESSAGES-STOP');
+      end;
+      Break;
+    end;
 
     if _IsConsole then begin
       if KeyPressed then begin           //  <--- CRT function to test key press
@@ -675,11 +703,14 @@ begin
 
     _Rkmessage := nil;
     try
-      _Rkmessage := rd_kafka_consumer_poll(_rk, 1);
+      _Rkmessage := rd_kafka_consumer_poll(_rk, 100);
+      if _OnKafkaTick <> nil then begin
+        _OnKafkaTick('WAITFORMESSAGES-POLL');
+      end;
       if (_Rkmessage <> nil)  then begin
         if _Rkmessage^.err = RD_KAFKA_RESP_ERR__PARTITION_EOF then begin
           if _OnKafkaMessageEOF <> nil then begin
-            _OnKafkaMessageEOF('RD_KAFKA_RESP_ERR__PARTITION_EOF');
+            _OnKafkaMessageEOF(FormatDateTime('yyyy-mm-dd hh:nn:ss.zzz', Now, _FormatSettings) + ': RD_KAFKA_RESP_ERR__PARTITION_EOF');
           end
           else begin
             KafkaWriteStatus('Read RD_KAFKA_RESP_ERR__PARTITION_EOF', _IsConsole);
@@ -689,7 +720,7 @@ begin
                 (_Rkmessage^.err = RD_KAFKA_RESP_ERR__UNKNOWN_TOPIC)
         then begin
           if _OnKafkaMessageErr <> nil then begin
-            _OnKafkaMessageErr('RD_KAFKA_RESP_ERR__UNKNOWN_PARTITION or RD_KAFKA_RESP_ERR__UNKNOWN_TOPIC');
+            _OnKafkaMessageErr(FormatDateTime('yyyy-mm-dd hh:nn:ss.zzz', Now, _FormatSettings) + ': RD_KAFKA_RESP_ERR__UNKNOWN_PARTITION or RD_KAFKA_RESP_ERR__UNKNOWN_TOPIC');
           end
           else begin
             KafkaWriteStatus('RD_KAFKA_RESP_ERR__UNKNOWN_PARTITION or RD_KAFKA_RESP_ERR__UNKNOWN_TOPIC', _IsConsole);
@@ -700,22 +731,38 @@ begin
           // I received valid message
           if _Rkmessage^.err <> 0 then begin
             if _OnKafkaMessageErr <> nil then begin
-              _OnKafkaMessageErr('Received from topic: ' + String(PChar(_Rkmessage^.rkt)) + '; ' + 'MsgNo: ' + IntToStr(_Rkmessage^.offset) + '; ' + 'Partition: ' + IntToStr(_Rkmessage^.partion));
+              _OnKafkaMessageErr(FormatDateTime('yyyy-mm-dd hh:nn:ss.zzz', Now, _FormatSettings) + ': Received from topic: ' + String(PChar(_Rkmessage^.rkt)) + '; ' + 'MsgNo: ' + IntToStr(_Rkmessage^.offset) + '; ' + 'Partition: ' + IntToStr(_Rkmessage^.partion));
             end
             else begin
-              KafkaWriteStatus('Received from topic: ' + String(PChar(_Rkmessage^.rkt)), _IsConsole);
+              if InMaxMessageLength = 0 then begin
+                KafkaWriteStatus('Received from topic: ' + String(PChar(_Rkmessage^.rkt)), _IsConsole);
+              end
+              else begin
+                KafkaWriteStatus('Received from topic: ' + Copy(String(PChar(_Rkmessage^.rkt)), 1, InMaxMessageLength), _IsConsole);
+              end;
               KafkaWriteStatus('MsgNo: ' + IntToStr(_Rkmessage^.offset), _IsConsole);
               KafkaWriteStatus('Partition: ' + IntToStr(_Rkmessage^.partion), _IsConsole);
             end;
           end
           else begin
-            KafkaWriteStatus(Format('%s Message (topic %s, part %d, offset %d, %d bytes):',
-                                   [FormatDateTime('yyyy-mm-dd hh:nn:ss.zzz', Now),
-                                    String(rd_kafka_topic_name(_Rkmessage^.rkt)),
-                                     _Rkmessage^.partion,
-                                     _Rkmessage^.offset,
-                                     _Rkmessage^.len
-                                   ]), _IsConsole);
+            if InMaxMessageLength = 0 then begin
+              KafkaWriteStatus(Format('%s Message (topic %s, part %d, offset %d, %d bytes):',
+                                     [FormatDateTime('yyyy-mm-dd hh:nn:ss.zzz', Now, _FormatSettings),
+                                      String(rd_kafka_topic_name(_Rkmessage^.rkt)),
+                                       _Rkmessage^.partion,
+                                       _Rkmessage^.offset,
+                                       _Rkmessage^.len
+                                     ]), _IsConsole);
+            end
+            else begin
+              KafkaWriteStatus(Format('%s Message (topic %s, part %d, offset %d, %d bytes):',
+                                     [FormatDateTime('yyyy-mm-dd hh:nn:ss.zzz', Now, _FormatSettings),
+                                      Copy(String(rd_kafka_topic_name(_Rkmessage^.rkt)), 1, InMaxMessageLength),
+                                       _Rkmessage^.partion,
+                                       _Rkmessage^.offset,
+                                       _Rkmessage^.len
+                                     ]), _IsConsole);
+            end;
             // MyString := PChar(_Rkmessage^.key);
             MyMessage := '';
             MyKey := '';
@@ -726,10 +773,20 @@ begin
               if _Rkmessage^.key_len > 0 then begin
                 SetString(MyKey, PChar(_Rkmessage^.key), _Rkmessage^.key_len);
               end;
-              _OnKafkaMessageReceived(MyMessage, MyKey, _Rkmessage);
+              if InMaxMessageLength = 0 then begin
+                _OnKafkaMessageReceived(MyMessage, MyKey, _Rkmessage);
+              end
+              else begin
+                _OnKafkaMessageReceived(Copy(MyMessage, 1, InMaxMessageLength), MyKey, _Rkmessage);
+              end;
             end
             else begin
-          	  KafkaWriteStatus(Format('Key: %s=%s', [MyKey, MyMessage]), _IsConsole);
+              if InMaxMessageLength = 0 then begin
+              	KafkaWriteStatus(Format('Key: %s=%s', [MyKey, MyMessage]), _IsConsole);
+              end
+              else begin
+              	KafkaWriteStatus(Format('Key: %s=%s', [MyKey, Copy(MyMessage, 1, 256)]), _IsConsole);
+              end;
             end;
             MyMessage := '';
             MyKey := '';
@@ -746,7 +803,11 @@ begin
       end;
     end;
   end;
+  if _OnKafkaTick <> nil then begin
+    _OnKafkaTick('WAITFORMESSAGES-END');
+  end;
 end;
+
 
 procedure TKafkaClass.CloseConsumer;
 var MyLastErrorCode: Trd_kafka_resp_err_t;
@@ -784,11 +845,13 @@ end;
 procedure TKafkaClass.StartConsumer(InKafkaSetup: TKafkaSetup;
   InOnKafkaMessageReceived: TOnKafkaMessageReceived;
   InOnKafkaMessageEOF: TOnKafkaMessageEOF;
-  INOnKafkaMessageErr: TOnKafkaMessageErr);
+  InOnKafkaMessageErr: TOnKafkaMessageErr; InOnKafkaTick: TOnKafkaTick;
+  InMaxMessageSize: Integer);
 var F: Integer;
     MyStrings: TStrings;
     MyPropKey, MyPropValue: String;
 begin
+  _OnKafkaTick := InOnKafkaTick;
   MyStrings := nil;
   try
     CreateKafkaHandler;
@@ -841,10 +904,10 @@ begin
       _OnKafkaMessageReceived := InOnKafkaMessageReceived;
     end;
 
-    _OnKafkaMessageErr := INOnKafkaMessageErr;
+    _OnKafkaMessageErr := InOnKafkaMessageErr;
     _OnKafkaMessageEOF := InOnKafkaMessageEOF;
 
-    WaitForMessages;
+    WaitForMessages(InMaxMessageSize);
 
     CleanUpConsumer;
 
