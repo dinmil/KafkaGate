@@ -6,3 +6,6 @@ There are 2 ways how to write FreePascal Kafka application. One is C procedural 
 
 Future of KafkaGate application is to become gateway between 0mq and Kafka library.
 Since 0mq is not the broker, idea is to use Kafka as 0mq broker if neccessery.
+
+
+Add New example how to create GUI Kafka producer and consumer application (KafkaPas)
