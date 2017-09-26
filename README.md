@@ -15,9 +15,13 @@ On the other hand Apache Kafka is message queue broker. So if you like ZeroMQ, b
 KafkaGate Console Menu
 writeln('Menu');
 writeln('1. Start consumer - C Style');
+
 writeln('2. Start producer - C Style');
+
 writeln('3. Start consumer - Pas Style');
+
 writeln('4. Start producer - Pas Style');
+
 writeln('');
 writeln('******************************');
 writeln('KAFKA 2 ZEROMQ');
