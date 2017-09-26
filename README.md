@@ -19,7 +19,7 @@ On the other hand Apache Kafka is message queue broker. So if you like ZeroMQ, b
 </p>
 
 <strong>KafkaGate Console Menu</strong>
-<p align="center">
+<p align="left">
 <br>writeln('Menu');
 <br>writeln('1. Start consumer - C Style');
 <br>writeln('2. Start producer - C Style');
