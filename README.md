@@ -13,11 +13,12 @@ ZeroMQ is excelent message queue library, but without broker (therefore you can 
 On the other hand Apache Kafka is message queue broker. So if you like ZeroMQ, but unfortunatelly you need some broker for your project, you can use Kafka to serve that purpose.
 
 <p align="center">
-  <img src="your_relative_path_here" width="350"/>
+  <img src="KafkaGate.png" width="700"/>
   <img src="KafkaPasProducer.png" width="350"/>
+  <img src="KafkaPasConsumer.png" width="350"/>
 </p>
 
-<p>KafkaGate Console Menu</p>
+<strong>KafkaGate Console Menu</strong>
 <p>writeln('Menu');</p>
 <p>writeln('1. Start consumer - C Style');</p>
 <p>writeln('2. Start producer - C Style');</p>
