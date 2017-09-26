@@ -12,41 +12,29 @@ KafkaGate is example how to create console application. This application is usef
 ZeroMQ is excelent message queue library, but without broker (therefore you can lost message).
 On the other hand Apache Kafka is message queue broker. So if you like ZeroMQ, but unfortunatelly you need some broker for your project, you can use Kafka to serve that purpose.
 
-KafkaGate Console Menu
-writeln('Menu');
-writeln('1. Start consumer - C Style');
+<p align="center">
+  <img src="your_relative_path_here" width="350"/>
+  <img src="KafkaPasProducer.png" width="350"/>
+</p>
 
-writeln('2. Start producer - C Style');
-
-writeln('3. Start consumer - Pas Style');
-
-writeln('4. Start producer - Pas Style');
-
-writeln('KAFKA 2 ZEROMQ');
-
-writeln('config_file: KafkaGate.ini');
-
-writeln('Purpose of this pipeline is');
-
-writeln('- put message to kafka->consume message from kafka->send message to 0mq->receive message from 0mq');
-
-writeln('11. Start Kafka Producer');
-
-writeln('12. Start Kafka Consumer -> Start ZEROMQ PUSH');
-
-writeln('13. Start ZEROMQ PULL');
-
-writeln('ZEROMQ 2 KAFKA');
-
-writeln('config_file: KafkaGate.ini');
-
-writeln('Purpose of this pipeline is');
-
-writeln('- put message to 0mq->consume message from 0mq->send message to kafka->receive message from kafka');
-
-writeln('21. Start ZERMOQ Producer PUSH');
-
-writeln('22. Start ZEROMQ PULL -> Kafka Producer');
-
-writeln('23. Start Kafka Consumer');
+<p>KafkaGate Console Menu</p>
+<p>writeln('Menu');</p>
+<p>writeln('1. Start consumer - C Style');</p>
+<p>writeln('2. Start producer - C Style');</p>
+<p>writeln('3. Start consumer - Pas Style');</p>
+<p>writeln('4. Start producer - Pas Style');</p>
+<p>writeln('KAFKA 2 ZEROMQ');</p>
+<p>writeln('config_file: KafkaGate.ini');</p>
+<p>writeln('Purpose of this pipeline is');</p>
+<p>writeln('- put message to kafka->consume message from kafka->send message to 0mq->receive message from 0mq');</p>
+<p>writeln('11. Start Kafka Producer');</p>
+<p>writeln('12. Start Kafka Consumer -> Start ZEROMQ PUSH');</p>
+<p>writeln('13. Start ZEROMQ PULL');</p>
+<p>writeln('ZEROMQ 2 KAFKA');</p>
+<p>writeln('config_file: KafkaGate.ini');</p>
+<p>writeln('Purpose of this pipeline is');</p>
+<p>writeln('- put message to 0mq->consume message from 0mq->send message to kafka->receive message from kafka');</p>
+<p>writeln('21. Start ZERMOQ Producer PUSH');</p>
+<p>writeln('22. Start ZEROMQ PULL -> Kafka Producer');</p>
+<p>writeln('23. Start Kafka Consumer');</p>
 
