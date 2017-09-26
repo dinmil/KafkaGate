@@ -3,7 +3,7 @@
 This library shows how to use Apache Kafka and FreePascal (CodeTyphon 6.0, Lazarus)
 This is translation of librdkafka C library (and it contain ZeroMQ wrapper also). 
 It contain examples for Win64 and Win32 (but it should be portable to Linux, etc..)
-There are 2 ways how to write FreePascal Kafka application. 
+There are two ways how to write FreePascal Kafka application. 
 One way is C procedural style, and the other one is Object Pascal Style.
 
 KafkaPas is example how to create Kafka GUI application. 
