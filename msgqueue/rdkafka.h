@@ -63,7 +63,7 @@ extern "C" {
 typedef SSIZE_T ssize_t;
 #define RD_UNUSED
 #define RD_INLINE __inline
-#define RD_DEPRECATED
+#define RD_DEPRECATED __declspec(deprecated)
 #undef RD_EXPORT
 #ifdef LIBRDKAFKA_STATICLIB
 #define RD_EXPORT
@@ -137,7 +137,7 @@ typedef SSIZE_T ssize_t;
  * @remark This value should only be used during compile time,
  *         for runtime checks of version use rd_kafka_version()
  */
-#define RD_KAFKA_VERSION  0x000905ff
+#define RD_KAFKA_VERSION  0x000b00ff
 
 /**
  * @brief Returns the librdkafka version as integer.
@@ -314,6 +314,16 @@ typedef enum {
         RD_KAFKA_RESP_ERR__UNSUPPORTED_FEATURE = -165,
         /** Awaiting cache update */
         RD_KAFKA_RESP_ERR__WAIT_CACHE = -164,
+        /** Operation interrupted (e.g., due to yield)) */
+        RD_KAFKA_RESP_ERR__INTR = -163,
+        /** Key serialization error */
+        RD_KAFKA_RESP_ERR__KEY_SERIALIZATION = -162,
+        /** Value serialization error */
+        RD_KAFKA_RESP_ERR__VALUE_SERIALIZATION = -161,
+        /** Key deserialization error */
+        RD_KAFKA_RESP_ERR__KEY_DESERIALIZATION = -160,
+        /** Value deserialization error */
+        RD_KAFKA_RESP_ERR__VALUE_DESERIALIZATION = -159,
 
 	/** End internal error codes */
 	RD_KAFKA_RESP_ERR__END = -100,
@@ -409,6 +419,35 @@ typedef enum {
 	RD_KAFKA_RESP_ERR_INVALID_REQUEST = 42,
 	/** Message format on broker does not support request */
 	RD_KAFKA_RESP_ERR_UNSUPPORTED_FOR_MESSAGE_FORMAT = 43,
+        /** Isolation policy volation */
+        RD_KAFKA_RESP_ERR_POLICY_VIOLATION = 44,
+        /** Broker received an out of order sequence number */
+        RD_KAFKA_RESP_ERR_OUT_OF_ORDER_SEQUENCE_NUMBER = 45,
+        /** Broker received a duplicate sequence number */
+        RD_KAFKA_RESP_ERR_DUPLICATE_SEQUENCE_NUMBER = 46,
+        /** Producer attempted an operation with an old epoch */
+        RD_KAFKA_RESP_ERR_INVALID_PRODUCER_EPOCH = 47,
+        /** Producer attempted a transactional operation in an invalid state */
+        RD_KAFKA_RESP_ERR_INVALID_TXN_STATE = 48,
+        /** Producer attempted to use a producer id which is not
+         *  currently assigned to its transactional id */
+        RD_KAFKA_RESP_ERR_INVALID_PRODUCER_ID_MAPPING = 49,
+        /** Transaction timeout is larger than the maximum
+         *  value allowed by the broker's max.transaction.timeout.ms */
+        RD_KAFKA_RESP_ERR_INVALID_TRANSACTION_TIMEOUT = 50,
+        /** Producer attempted to update a transaction while another
+         *  concurrent operation on the same transaction was ongoing */
+        RD_KAFKA_RESP_ERR_CONCURRENT_TRANSACTIONS = 51,
+        /** Indicates that the transaction coordinator sending a
+         *  WriteTxnMarker is no longer the current coordinator for a
+         *  given producer */
+        RD_KAFKA_RESP_ERR_TRANSACTION_COORDINATOR_FENCED = 52,
+        /** Transactional Id authorization failed */
+        RD_KAFKA_RESP_ERR_TRANSACTIONAL_ID_AUTHORIZATION_FAILED = 53,
+        /** Security features are disabled */
+        RD_KAFKA_RESP_ERR_SECURITY_DISABLED = 54,
+        /** Operation not attempted */
+        RD_KAFKA_RESP_ERR_OPERATION_NOT_ATTEMPTED = 55,
 
 	RD_KAFKA_RESP_ERR_END_ALL,
 } rd_kafka_resp_err_t;
@@ -476,6 +515,9 @@ const char *rd_kafka_err2name (rd_kafka_resp_err_t err);
  *         are used in the same application thread the developer needs to
  *         make sure rd_kafka_last_error() is called immediately after
  *         a failed API call.
+ *
+ * @remark errno propagation from librdkafka is not safe on Windows
+ *         and should not be used, use rd_kafka_last_error() instead.
  */
 RD_EXPORT
 rd_kafka_resp_err_t rd_kafka_last_error (void);
@@ -500,9 +542,12 @@ rd_kafka_resp_err_t rd_kafka_last_error (void);
  * @remark A better alternative is to call rd_kafka_last_error() immediately
  *         after any of the above functions return -1 or NULL.
  *
+ * @deprecated Use rd_kafka_last_error() to retrieve the last error code
+ *             set by the legacy librdkafka APIs.
+ *
  * @sa rd_kafka_last_error()
  */
-RD_EXPORT
+RD_EXPORT RD_DEPRECATED
 rd_kafka_resp_err_t rd_kafka_errno2err(int errnox);
 
 
@@ -511,11 +556,14 @@ rd_kafka_resp_err_t rd_kafka_errno2err(int errnox);
  *
  * On most platforms this is the same as \p errno but in case of different
  * runtimes between library and application (e.g., Windows static DLLs)
- * this provides a means for expsing the errno librdkafka uses.
+ * this provides a means for exposing the errno librdkafka uses.
  *
  * @remark The value is local to the current calling thread.
+ *
+ * @deprecated Use rd_kafka_last_error() to retrieve the last error code
+ *             set by the legacy librdkafka APIs.
  */
-RD_EXPORT
+RD_EXPORT RD_DEPRECATED
 int rd_kafka_errno (void);
 
 
@@ -869,6 +917,8 @@ void rd_kafka_message_destroy(rd_kafka_message_t *rkmessage);
 /**
  * @brief Returns the error string for an errored rd_kafka_message_t or NULL if
  *        there was no error.
+ *
+ * @remark This function MUST NOT be used with the producer.
  */
 static RD_INLINE const char *
 RD_UNUSED 
@@ -899,6 +949,16 @@ RD_EXPORT
 int64_t rd_kafka_message_timestamp (const rd_kafka_message_t *rkmessage,
 				    rd_kafka_timestamp_type_t *tstype);
 
+
+
+/**
+ * @brief Returns the latency for a produced message measured from
+ *        the produce() call.
+ *
+ * @returns the latency in microseconds, or -1 if not available.
+ */
+RD_EXPORT
+int64_t rd_kafka_message_latency (const rd_kafka_message_t *rkmessage);
 
 
 /**@}*/
@@ -966,9 +1026,23 @@ void rd_kafka_conf_destroy(rd_kafka_conf_t *conf);
 
 /**
  * @brief Creates a copy/duplicate of configuration object \p conf
+ *
+ * @remark Interceptors are NOT copied to the new configuration object.
+ * @sa rd_kafka_interceptor_f_on_conf_dup
  */
 RD_EXPORT
 rd_kafka_conf_t *rd_kafka_conf_dup(const rd_kafka_conf_t *conf);
+
+
+/**
+ * @brief Same as rd_kafka_conf_dup() but with an array of property name
+ *        prefixes to filter out (ignore) when copying.
+ */
+RD_EXPORT
+rd_kafka_conf_t *rd_kafka_conf_dup_filter (const rd_kafka_conf_t *conf,
+                                           size_t filter_cnt,
+                                           const char **filter);
+
 
 
 /**
@@ -1608,6 +1682,13 @@ const char *rd_kafka_name(const rd_kafka_t *rk);
 
 
 /**
+ * @brief Returns Kafka handle type.
+ */
+RD_EXPORT
+rd_kafka_type_t rd_kafka_type(const rd_kafka_t *rk);
+
+
+/**
  * @brief Returns this client's broker-assigned group member id 
  *
  * @remark This currently requires the high-level KafkaConsumer
@@ -1619,6 +1700,28 @@ const char *rd_kafka_name(const rd_kafka_t *rk);
  */
 RD_EXPORT
 char *rd_kafka_memberid (const rd_kafka_t *rk);
+
+
+
+/**
+ * @brief Returns the ClusterId as reported in broker metadata.
+ *
+ * @param timeout_ms If there is no cached value from metadata retrieval
+ *                   then this specifies the maximum amount of time
+ *                   (in milliseconds) the call will block waiting
+ *                   for metadata to be retrieved.
+ *                   Use 0 for non-blocking calls.
+
+ * @remark Requires broker version >=0.10.0 and api.version.request=true.
+ *
+ * @remark The application must free the returned pointer
+ *         using rd_kafka_mem_free().
+ *
+ * @returns a newly allocated string containing the ClusterId, or NULL
+ *          if no ClusterId could be retrieved in the allotted timespan.
+ */
+RD_EXPORT
+char *rd_kafka_clusterid (rd_kafka_t *rk, int timeout_ms);
 
 
 /**
@@ -2089,7 +2192,7 @@ rd_kafka_resp_err_t rd_kafka_seek (rd_kafka_topic_t *rkt,
  * \p timeout_ms is maximum amount of time to wait for a message to be received.
  * Consumer must have been previously started with `rd_kafka_consume_start()`.
  *
- * Returns a message object on success or \c NULL on error.
+ * @returns a message object on success or \c NULL on error.
  * The message object must be destroyed with `rd_kafka_message_destroy()`
  * when the application is done with it.
  *
@@ -2103,6 +2206,9 @@ rd_kafka_resp_err_t rd_kafka_seek (rd_kafka_topic_t *rkt,
  *       end of the partition has been reached, which should typically not be
  *       considered an error. The application should handle this case
  *       (e.g., ignore).
+ *
+ * @remark on_consume() interceptors may be called from this function prior to
+ *         passing message to application.
  */
 RD_EXPORT
 rd_kafka_message_t *rd_kafka_consume(rd_kafka_topic_t *rkt, int32_t partition,
@@ -2131,6 +2237,9 @@ rd_kafka_message_t *rd_kafka_consume(rd_kafka_topic_t *rkt, int32_t partition,
  * or -1 on error (same error codes as for `rd_kafka_consume()`.
  *
  * @sa rd_kafka_consume()
+ *
+ * @remark on_consume() interceptors may be called from this function prior to
+ *         passing message to application.
  */
 RD_EXPORT
 ssize_t rd_kafka_consume_batch(rd_kafka_topic_t *rkt, int32_t partition,
@@ -2159,6 +2268,9 @@ ssize_t rd_kafka_consume_batch(rd_kafka_topic_t *rkt, int32_t partition,
  * @returns the number of messages processed or -1 on error.
  *
  * @sa rd_kafka_consume()
+ *
+ * @remark on_consume() interceptors may be called from this function prior to
+ *         passing message to application.
  */
 RD_EXPORT
 int rd_kafka_consume_callback(rd_kafka_topic_t *rkt, int32_t partition,
@@ -2233,15 +2345,34 @@ int rd_kafka_consume_callback_queue(rd_kafka_queue_t *rkqu,
  * @brief Store offset \p offset for topic \p rkt partition \p partition.
  *
  * The offset will be committed (written) to the offset store according
- * to \c `auto.commit.interval.ms`.
+ * to \c `auto.commit.interval.ms` or manual offset-less commit()
  *
- * @remark \c `auto.commit.enable` must be set to "false" when using this API.
+ * @remark \c `enable.auto.offset.store` must be set to "false" when using this API.
  *
  * @returns RD_KAFKA_RESP_ERR_NO_ERROR on success or an error code on error.
  */
 RD_EXPORT
 rd_kafka_resp_err_t rd_kafka_offset_store(rd_kafka_topic_t *rkt,
 					   int32_t partition, int64_t offset);
+
+
+/**
+ * @brief Store offsets for one or more partitions.
+ *
+ * The offset will be committed (written) to the offset store according
+ * to \c `auto.commit.interval.ms` or manual offset-less commit().
+ *
+ * Per-partition success/error status propagated through each partition's
+ * \c .err field.
+ *
+ * @remark \c `enable.auto.offset.store` must be set to "false" when using this API.
+ *
+ * @returns RD_KAFKA_RESP_ERR_NO_ERROR on success or an error code if
+ *          none of the offsets could be stored.
+ */
+RD_EXPORT rd_kafka_resp_err_t
+rd_kafka_offsets_store(rd_kafka_t *rk,
+                       rd_kafka_topic_partition_list_t *offsets);
 /**@}*/
 
 
@@ -2310,6 +2441,9 @@ rd_kafka_subscription (rd_kafka_t *rk,
  * @returns A message object which is a proper message if \p ->err is
  *          RD_KAFKA_RESP_ERR_NO_ERROR, or an event or error for any other
  *          value.
+ *
+ * @remark on_consume() interceptors may be called from this function prior to
+ *         passing message to application.
  *
  * @sa rd_kafka_message_t
  */
@@ -2545,7 +2679,11 @@ rd_kafka_position (rd_kafka_t *rk,
  * pointer that will provided in the delivery report callback (`dr_cb`) for
  * referencing this message.
  *
- * Returns 0 on success or -1 on error in which case errno is set accordingly:
+ * @remark on_send() and on_acknowledgement() interceptors may be called
+ *         from this function. on_acknowledgement() will only be called if the
+ *         message fails partitioning.
+ *
+ * @returns 0 on success or -1 on error in which case errno is set accordingly:
  *  - ENOBUFS  - maximum number of outstanding messages has been reached:
  *               "queue.buffering.max.messages"
  *               (RD_KAFKA_RESP_ERR__QUEUE_FULL)
@@ -2932,12 +3070,20 @@ int rd_kafka_thread_cnt(void);
  *
  * Returns 0 if all kafka objects are now destroyed, or -1 if the
  * timeout was reached.
- * Since `rd_kafka_destroy()` is an asynch operation the 
- * `rd_kafka_wait_destroyed()` function can be used for applications where
- * a clean shutdown is required.
+ *
+ * @remark This function is deprecated.
  */
 RD_EXPORT
 int rd_kafka_wait_destroyed(int timeout_ms);
+
+
+/**
+ * @brief Run librdkafka's built-in unit-tests.
+ *
+ * @returns the number of failures, or 0 if all tests passed.
+ */
+RD_EXPORT
+int rd_kafka_unittest (void);
 
 
 /**@}*/
@@ -2984,6 +3130,7 @@ typedef int rd_kafka_event_type_t;
 #define RD_KAFKA_EVENT_ERROR         0x8  /**< Error */
 #define RD_KAFKA_EVENT_REBALANCE     0x10 /**< Group rebalance (consumer) */
 #define RD_KAFKA_EVENT_OFFSET_COMMIT 0x20 /**< Offset commit result */
+#define RD_KAFKA_EVENT_STATS         0x40 /**< Stats */
 
 
 typedef struct rd_kafka_op_s rd_kafka_event_t;
@@ -3032,6 +3179,9 @@ void rd_kafka_event_destroy (rd_kafka_event_t *rkev);
  *
  * @remark The returned message(s) MUST NOT be
  *         freed with rd_kafka_message_destroy().
+ *
+ * @remark on_consume() interceptor may be called
+ *         from this function prior to passing message to application.
  */
 RD_EXPORT
 const rd_kafka_message_t *rd_kafka_event_message_next (rd_kafka_event_t *rkev);
@@ -3046,6 +3196,9 @@ const rd_kafka_message_t *rd_kafka_event_message_next (rd_kafka_event_t *rkev);
  *  - RD_KAFKA_EVENT_DR     (>=1 message(s))
  *
  * @returns the number of messages extracted.
+ *
+ * @remark on_consume() interceptor may be called
+ *         from this function prior to passing message to application.
  */
 RD_EXPORT
 size_t rd_kafka_event_message_array (rd_kafka_event_t *rkev,
@@ -3111,6 +3264,21 @@ int rd_kafka_event_log (rd_kafka_event_t *rkev,
 
 
 /**
+ * @brief Extract stats from the event.
+ *
+ * Event types:
+ *  - RD_KAFKA_EVENT_STATS
+ *
+ * @returns stats json string.
+ *
+ * @remark the returned string will be freed automatically along with the event object
+ *
+ */
+RD_EXPORT
+const char *rd_kafka_event_stats (rd_kafka_event_t *rkev);
+
+
+/**
  * @returns the topic partition list from the event.
  *
  * @remark The list MUST NOT be freed with rd_kafka_topic_partition_list_destroy()
@@ -3159,6 +3327,493 @@ int rd_kafka_queue_poll_callback (rd_kafka_queue_t *rkqu, int timeout_ms);
 
 
 /**@}*/
+
+
+/**
+ * @name Plugin interface
+ *
+ * @brief A plugin interface that allows external runtime-loaded libraries
+ *        to integrate with a client instance without modifications to
+ *        the application code.
+ *
+ *        Plugins are loaded when referenced through the `plugin.library.paths`
+ *        configuration property and operates on the \c rd_kafka_conf_t
+ *        object prior \c rd_kafka_t instance creation.
+ *
+ * @warning Plugins require the application to link librdkafka dynamically
+ *          and not statically. Failure to do so will lead to missing symbols
+ *          or finding symbols in another librdkafka library than the
+ *          application was linked with.
+ */
+
+
+/**
+ * @brief Plugin's configuration initializer method called each time the
+ *        library is referenced from configuration (even if previously loaded by
+ *        another client instance).
+ *
+ * @remark This method MUST be implemented by plugins and have the symbol name
+ *         \c conf_init
+ *
+ * @param conf Configuration set up to this point.
+ * @param plug_opaquep Plugin can set this pointer to a per-configuration
+ *                     opaque pointer.
+ * @param errstr String buffer of size \p errstr_size where plugin must write
+ *               a human readable error string in the case the initializer
+ *               fails (returns non-zero).
+ *
+ * @remark A plugin may add an on_conf_destroy() interceptor to clean up
+ *         plugin-specific resources created in the plugin's conf_init() method.
+ *
+ * @returns RD_KAFKA_RESP_ERR_NO_ERROR on success or an error code on error.
+ */
+typedef rd_kafka_resp_err_t
+(rd_kafka_plugin_f_conf_init_t) (rd_kafka_conf_t *conf,
+                                 void **plug_opaquep,
+                                 char *errstr, size_t errstr_size);
+
+/**@}*/
+
+
+
+/**
+ * @name Interceptors
+ *
+ * @{
+ *
+ * @brief A callback interface that allows message interception for both
+ *        producer and consumer data pipelines.
+ *
+ * Except for the on_new(), on_conf_set(), on_conf_dup() and on_conf_destroy()
+ * interceptors, interceptors are added to the
+ * newly created rd_kafka_t client instance. These interceptors MUST only
+ * be added from on_new() and MUST NOT be added after rd_kafka_new() returns.
+ *
+ * The on_new(), on_conf_set(), on_conf_dup() and on_conf_destroy() interceptors
+ * are added to the configuration object which is later passed to
+ * rd_kafka_new() where on_new() is called to allow addition of
+ * other interceptors.
+ *
+ * Each interceptor reference consists of a display name (ic_name),
+ * a callback function, and an application-specified opaque value that is
+ * passed as-is to the callback.
+ * The ic_name must be unique for the interceptor implementation and is used
+ * to reject duplicate interceptor methods.
+ *
+ * Any number of interceptors can be added and they are called in the order
+ * they were added, unless otherwise noted.
+ * The list of registered interceptor methods are referred to as
+ * interceptor chains.
+ *
+ * @remark Contrary to the Java client the librdkafka interceptor interface
+ *         does not support message modification. Message mutability is
+ *         discouraged in the Java client and the combination of
+ *         serializers and headers cover most use-cases.
+ *
+ * @remark Interceptors are NOT copied to the new configuration on
+ *         rd_kafka_conf_dup() since it would be hard for interceptors to
+ *         track usage of the interceptor's opaque value.
+ *         An interceptor should rely on the plugin, which will be copied
+ *         in rd_kafka_conf_conf_dup(), to set up the initial interceptors.
+ *         An interceptor should implement the on_conf_dup() method
+ *         to manually set up its internal configuration on the newly created
+ *         configuration object that is being copied-to based on the
+ *         interceptor-specific configuration properties.
+ *         conf_dup() should thus be treated the same as conf_init().
+ *
+ * @remark Interceptors are keyed by the interceptor type (on_..()), the
+ *         interceptor name (ic_name) and the interceptor method function.
+ *         Duplicates are not allowed and the .._add_on_..() method will
+ *         return RD_KAFKA_RESP_ERR__CONFLICT if attempting to add a duplicate
+ *         method.
+ *         The only exception is on_conf_destroy() which may be added multiple
+ *         times by the same interceptor to allow proper cleanup of
+ *         interceptor configuration state.
+ */
+
+
+/**
+ * @brief on_conf_set() is called from rd_kafka_*_conf_set() in the order
+ *        the interceptors were added.
+ *
+ * @param ic_opaque The interceptor's opaque pointer specified in ..add..().
+ * @param name The configuration property to set.
+ * @param val The configuration value to set, or NULL for reverting to default
+ *            in which case the previous value should be freed.
+ * @param errstr A human readable error string in case the interceptor fails.
+ * @param errstr_size Maximum space (including \0) in \p errstr.
+ *
+ * @returns RD_KAFKA_CONF_RES_OK if the property was known and successfully
+ *          handled by the interceptor, RD_KAFKA_CONF_RES_INVALID if the
+ *          property was handled by the interceptor but the value was invalid,
+ *          or RD_KAFKA_CONF_RES_UNKNOWN if the interceptor did not handle
+ *          this property, in which case the property is passed on on the
+ *          interceptor in the chain, finally ending up at the built-in
+ *          configuration handler.
+ */
+typedef rd_kafka_conf_res_t
+(rd_kafka_interceptor_f_on_conf_set_t) (rd_kafka_conf_t *conf,
+                                        const char *name, const char *val,
+                                        char *errstr, size_t errstr_size,
+                                        void *ic_opaque);
+
+
+/**
+ * @brief on_conf_dup() is called from rd_kafka_conf_dup() in the
+ *        order the interceptors were added and is used to let
+ *        an interceptor re-register its conf interecptors with a new
+ *        opaque value.
+ *        The on_conf_dup() method is called prior to the configuration from
+ *        \p old_conf being copied to \p new_conf.
+ *
+ * @param ic_opaque The interceptor's opaque pointer specified in ..add..().
+ *
+ * @returns RD_KAFKA_RESP_ERR_NO_ERROR on success or an error code
+ *          on failure (which is logged but otherwise ignored).
+ *
+ * @remark No on_conf_* interceptors are copied to the new configuration
+ *         object on rd_kafka_conf_dup().
+ */
+typedef rd_kafka_resp_err_t
+(rd_kafka_interceptor_f_on_conf_dup_t) (rd_kafka_conf_t *new_conf,
+                                        const rd_kafka_conf_t *old_conf,
+                                        size_t filter_cnt,
+                                        const char **filter,
+                                        void *ic_opaque);
+
+
+/**
+ * @brief on_conf_destroy() is called from rd_kafka_*_conf_destroy() in the
+ *        order the interceptors were added.
+ *
+ * @param ic_opaque The interceptor's opaque pointer specified in ..add..().
+ */
+typedef rd_kafka_resp_err_t
+(rd_kafka_interceptor_f_on_conf_destroy_t) (void *ic_opaque);
+
+
+/**
+ * @brief on_new() is called from rd_kafka_new() prior toreturning
+ *        the newly created client instance to the application.
+ *
+ * @param rk The client instance.
+ * @param conf The client instance's final configuration.
+ * @param ic_opaque The interceptor's opaque pointer specified in ..add..().
+ * @param errstr A human readable error string in case the interceptor fails.
+ * @param errstr_size Maximum space (including \0) in \p errstr.
+ *
+ * @returns an error code on failure, the error is logged but otherwise ignored.
+ *
+ * @warning The \p rk client instance will not be fully set up when this
+ *          interceptor is called and the interceptor MUST NOT call any
+ *          other rk-specific APIs than rd_kafka_interceptor_add..().
+ *
+ */
+typedef rd_kafka_resp_err_t
+(rd_kafka_interceptor_f_on_new_t) (rd_kafka_t *rk, const rd_kafka_conf_t *conf,
+                                   void *ic_opaque,
+                                   char *errstr, size_t errstr_size);
+
+
+/**
+ * @brief on_destroy() is called from rd_kafka_destroy() or (rd_kafka_new()
+ *        if rd_kafka_new() fails during initialization).
+ *
+ * @param rk The client instance.
+ * @param ic_opaque The interceptor's opaque pointer specified in ..add..().
+ */
+typedef rd_kafka_resp_err_t
+(rd_kafka_interceptor_f_on_destroy_t) (rd_kafka_t *rk, void *ic_opaque);
+
+
+
+
+/**
+ * @brief on_send() is called from rd_kafka_produce*() (et.al) prior to
+ *        the partitioner being called.
+ *
+ * @param rk The client instance.
+ * @param rkmessage The message being produced. Immutable.
+ * @param ic_opaque The interceptor's opaque pointer specified in ..add..().
+ *
+ * @remark This interceptor is only used by producer instances.
+ *
+ * @remark The \p rkmessage object is NOT mutable and MUST NOT be modified
+ *         by the interceptor.
+ *
+ * @remark If the partitioner fails or an unknown partition was specified,
+ *         the on_acknowledgement() interceptor chain will be called from
+ *         within the rd_kafka_produce*() call to maintain send-acknowledgement
+ *         symmetry.
+ *
+ * @returns an error code on failure, the error is logged but otherwise ignored.
+ */
+typedef rd_kafka_resp_err_t
+(rd_kafka_interceptor_f_on_send_t) (rd_kafka_t *rk,
+                                    rd_kafka_message_t *rkmessage,
+                                    void *ic_opaque);
+
+/**
+ * @brief on_acknowledgement() is called to inform interceptors that a message
+ *        was succesfully delivered or permanently failed delivery.
+ *        The interceptor chain is called from internal librdkafka background
+ *        threads, or rd_kafka_produce*() if the partitioner failed.
+ *
+ * @param rk The client instance.
+ * @param rkmessage The message being produced. Immutable.
+ * @param ic_opaque The interceptor's opaque pointer specified in ..add..().
+ *
+ * @remark This interceptor is only used by producer instances.
+ *
+ * @remark The \p rkmessage object is NOT mutable and MUST NOT be modified
+ *         by the interceptor.
+ *
+ * @warning The on_acknowledgement() method may be called from internal
+ *         librdkafka threads. An on_acknowledgement() interceptor MUST NOT
+ *         call any librdkafka API's associated with the \p rk, or perform
+ *         any blocking or prolonged work.
+ *
+ * @returns an error code on failure, the error is logged but otherwise ignored.
+ */
+typedef rd_kafka_resp_err_t
+(rd_kafka_interceptor_f_on_acknowledgement_t) (rd_kafka_t *rk,
+                                               rd_kafka_message_t *rkmessage,
+                                               void *ic_opaque);
+
+
+/**
+ * @brief on_consume() is called just prior to passing the message to the
+ *        application in rd_kafka_consumer_poll(), rd_kafka_consume*(),
+ *        the event interface, etc.
+ *
+ * @param rk The client instance.
+ * @param rkmessage The message being consumed. Immutable.
+ * @param ic_opaque The interceptor's opaque pointer specified in ..add..().
+ *
+ * @remark This interceptor is only used by consumer instances.
+ *
+ * @remark The \p rkmessage object is NOT mutable and MUST NOT be modified
+ *         by the interceptor.
+ *
+ * @returns an error code on failure, the error is logged but otherwise ignored.
+ */
+typedef rd_kafka_resp_err_t
+(rd_kafka_interceptor_f_on_consume_t) (rd_kafka_t *rk,
+                                       rd_kafka_message_t *rkmessage,
+                                       void *ic_opaque);
+
+/**
+ * @brief on_commit() is called on completed or failed offset commit.
+ *        It is called from internal librdkafka threads.
+ *
+ * @param rk The client instance.
+ * @param offsets List of topic+partition+offset+error that were committed.
+ *                The error message of each partition should be checked for
+ *                error.
+ * @param ic_opaque The interceptor's opaque pointer specified in ..add..().
+ *
+ * @remark This interceptor is only used by consumer instances.
+ *
+ * @warning The on_commit() interceptor is called from internal
+ *          librdkafka threads. An on_commit() interceptor MUST NOT
+ *          call any librdkafka API's associated with the \p rk, or perform
+ *          any blocking or prolonged work.
+ *
+ *
+ * @returns an error code on failure, the error is logged but otherwise ignored.
+ */
+typedef rd_kafka_resp_err_t
+(rd_kafka_interceptor_f_on_commit_t) (
+        rd_kafka_t *rk,
+        const rd_kafka_topic_partition_list_t *offsets,
+        rd_kafka_resp_err_t err, void *ic_opaque);
+
+
+
+/**
+ * @brief Append an on_conf_set() interceptor.
+ *
+ * @param conf Configuration object.
+ * @param ic_name Interceptor name, used in logging.
+ * @param on_conf_set Function pointer.
+ * @param ic_opaque Opaque value that will be passed to the function.
+ *
+ * @returns RD_KAFKA_RESP_ERR_NO_ERROR on success or RD_KAFKA_RESP_ERR__CONFLICT
+ *          if an existing intercepted with the same \p ic_name and function
+ *          has already been added to \p conf.
+ */
+RD_EXPORT rd_kafka_resp_err_t
+rd_kafka_conf_interceptor_add_on_conf_set (
+        rd_kafka_conf_t *conf, const char *ic_name,
+        rd_kafka_interceptor_f_on_conf_set_t *on_conf_set,
+        void *ic_opaque);
+
+
+/**
+ * @brief Append an on_conf_dup() interceptor.
+ *
+ * @param conf Configuration object.
+ * @param ic_name Interceptor name, used in logging.
+ * @param on_conf_dup Function pointer.
+ * @param ic_opaque Opaque value that will be passed to the function.
+ *
+ * @returns RD_KAFKA_RESP_ERR_NO_ERROR on success or RD_KAFKA_RESP_ERR__CONFLICT
+ *          if an existing intercepted with the same \p ic_name and function
+ *          has already been added to \p conf.
+ */
+RD_EXPORT rd_kafka_resp_err_t
+rd_kafka_conf_interceptor_add_on_conf_dup (
+        rd_kafka_conf_t *conf, const char *ic_name,
+        rd_kafka_interceptor_f_on_conf_dup_t *on_conf_dup,
+        void *ic_opaque);
+
+/**
+ * @brief Append an on_conf_destroy() interceptor.
+ *
+ * @param conf Configuration object.
+ * @param ic_name Interceptor name, used in logging.
+ * @param on_conf_destroy Function pointer.
+ * @param ic_opaque Opaque value that will be passed to the function.
+ *
+ * @returns RD_KAFKA_RESP_ERR_NO_ERROR
+ *
+ * @remark Multiple on_conf_destroy() interceptors are allowed to be added
+ *         to the same configuration object.
+ */
+RD_EXPORT rd_kafka_resp_err_t
+rd_kafka_conf_interceptor_add_on_conf_destroy (
+        rd_kafka_conf_t *conf, const char *ic_name,
+        rd_kafka_interceptor_f_on_conf_destroy_t *on_conf_destroy,
+        void *ic_opaque);
+
+
+/**
+ * @brief Append an on_new() interceptor.
+ *
+ * @param conf Configuration object.
+ * @param ic_name Interceptor name, used in logging.
+ * @param on_send Function pointer.
+ * @param ic_opaque Opaque value that will be passed to the function.
+  *
+ * @remark Since the on_new() interceptor is added to the configuration object
+ *         it may be copied by rd_kafka_conf_dup().
+ *         An interceptor implementation must thus be able to handle
+ *         the same interceptor,ic_opaque tuple to be used by multiple
+ *         client instances.
+ *
+ * @remark An interceptor plugin should check the return value to make sure it
+ *         has not already been added.
+ *
+ * @returns RD_KAFKA_RESP_ERR_NO_ERROR on success or RD_KAFKA_RESP_ERR__CONFLICT
+ *          if an existing intercepted with the same \p ic_name and function
+ *          has already been added to \p conf.
+ */
+RD_EXPORT rd_kafka_resp_err_t
+rd_kafka_conf_interceptor_add_on_new (
+        rd_kafka_conf_t *conf, const char *ic_name,
+        rd_kafka_interceptor_f_on_new_t *on_new,
+        void *ic_opaque);
+
+
+
+/**
+ * @brief Append an on_destroy() interceptor.
+ *
+ * @param rk Client instance.
+ * @param ic_name Interceptor name, used in logging.
+ * @param on_destroy Function pointer.
+ * @param ic_opaque Opaque value that will be passed to the function.
+ *
+ * @returns RD_KAFKA_RESP_ERR_NO_ERROR on success or RD_KAFKA_RESP_ERR__CONFLICT
+ *          if an existing intercepted with the same \p ic_name and function
+ *          has already been added to \p conf.
+ */
+RD_EXPORT rd_kafka_resp_err_t
+rd_kafka_interceptor_add_on_destroy (
+        rd_kafka_t *rk, const char *ic_name,
+        rd_kafka_interceptor_f_on_destroy_t *on_destroy,
+        void *ic_opaque);
+
+
+/**
+ * @brief Append an on_send() interceptor.
+ *
+ * @param rk Client instance.
+ * @param ic_name Interceptor name, used in logging.
+ * @param on_send Function pointer.
+ * @param ic_opaque Opaque value that will be passed to the function.
+ *
+ * @returns RD_KAFKA_RESP_ERR_NO_ERROR on success or RD_KAFKA_RESP_ERR__CONFLICT
+ *          if an existing intercepted with the same \p ic_name and function
+ *          has already been added to \p conf.
+ */
+RD_EXPORT rd_kafka_resp_err_t
+rd_kafka_interceptor_add_on_send (
+        rd_kafka_t *rk, const char *ic_name,
+        rd_kafka_interceptor_f_on_send_t *on_send,
+        void *ic_opaque);
+
+/**
+ * @brief Append an on_acknowledgement() interceptor.
+ *
+ * @param rk Client instance.
+ * @param ic_name Interceptor name, used in logging.
+ * @param on_acknowledgement Function pointer.
+ * @param ic_opaque Opaque value that will be passed to the function.
+ *
+ * @returns RD_KAFKA_RESP_ERR_NO_ERROR on success or RD_KAFKA_RESP_ERR__CONFLICT
+ *          if an existing intercepted with the same \p ic_name and function
+ *          has already been added to \p conf.
+ */
+RD_EXPORT rd_kafka_resp_err_t
+rd_kafka_interceptor_add_on_acknowledgement (
+        rd_kafka_t *rk, const char *ic_name,
+        rd_kafka_interceptor_f_on_acknowledgement_t *on_acknowledgement,
+        void *ic_opaque);
+
+
+/**
+ * @brief Append an on_consume() interceptor.
+ *
+ * @param rk Client instance.
+ * @param ic_name Interceptor name, used in logging.
+ * @param on_consume Function pointer.
+ * @param ic_opaque Opaque value that will be passed to the function.
+ *
+ * @returns RD_KAFKA_RESP_ERR_NO_ERROR on success or RD_KAFKA_RESP_ERR__CONFLICT
+ *          if an existing intercepted with the same \p ic_name and function
+ *          has already been added to \p conf.
+ */
+RD_EXPORT rd_kafka_resp_err_t
+rd_kafka_interceptor_add_on_consume (
+        rd_kafka_t *rk, const char *ic_name,
+        rd_kafka_interceptor_f_on_consume_t *on_consume,
+        void *ic_opaque);
+
+
+/**
+ * @brief Append an on_commit() interceptor.
+ *
+ * @param rk Client instance.
+ * @param ic_name Interceptor name, used in logging.
+ * @param on_commit() Function pointer.
+ * @param ic_opaque Opaque value that will be passed to the function.
+ *
+ * @returns RD_KAFKA_RESP_ERR_NO_ERROR on success or RD_KAFKA_RESP_ERR__CONFLICT
+ *          if an existing intercepted with the same \p ic_name and function
+ *          has already been added to \p conf.
+ */
+RD_EXPORT rd_kafka_resp_err_t
+rd_kafka_interceptor_add_on_commit (
+        rd_kafka_t *rk, const char *ic_name,
+        rd_kafka_interceptor_f_on_commit_t *on_commit,
+        void *ic_opaque);
+
+
+
+
+/**@}*/
+
 
 #ifdef __cplusplus
 }

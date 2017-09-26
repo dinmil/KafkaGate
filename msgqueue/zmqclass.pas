@@ -86,6 +86,7 @@ procedure Raise0MQError(InErrNo: Integer;
                         InErrMsg: String);
 procedure ZeroMQReadConfiguration(InIniFile: TIniFile; InSection: String; var Out0MQSetup: T0MQSetup); overload;
 procedure ZeroMQReadConfiguration(InIniFileName: String; InSection: String; var Out0MQSetup: T0MQSetup); overload;
+function  ZeroMQDumpSetup(var In0MQSetup: T0MQSetup): String;
 
 implementation
 
@@ -407,6 +408,22 @@ begin
       FreeAndNil(MyIniFile);
     end;
   end;
+end;
+
+function ZeroMQDumpSetup(var In0MQSetup: T0MQSetup): String;
+begin
+  Result := Format('address=%s' + #13#10 +
+                   'hwm=%d' + #13#10 +
+                   'recv_timeout=%d' + #13#10 +
+                   'end_timeout=%d' + #13#10 +
+                   'socket_type=%s',
+                   [
+                   In0MQSetup.address,
+                   In0MQSetup.hwm,
+                   In0MQSetup.recv_timeout,
+                   In0MQSetup.send_timeout,
+                   In0MQSetup.socket_type
+                   ]);
 end;
 
 

@@ -18,7 +18,7 @@ uses
   {$ENDIF}{$ENDIF}
 
   Classes, SysUtils, Crt,
-  Kafka, KafkaClass
+  Kafka, KafkaClass, zmq, ZMQClass, Kafka2Zero, Zero2Kafka
   { you can add units after this };
 
 const
@@ -31,6 +31,7 @@ const
 //  MyTopicProducer : string = 'sportfeedxml';
 
   BStop: Boolean = False;
+
 
 var
   conf: Prd_kafka_conf_t;
@@ -305,8 +306,8 @@ var MyRetVal: Trd_kafka_conf_res_t;
     errstr: array[0..512] of char;
     errstr_size: Int32;
     MyLastError: Trd_kafka_resp_err_t;
-    MyRetInt32: Int32;
-    MyString: String;
+    //MyRetInt32: Int32;
+    // MyString: String;
     MyBuffer: array[0..100000-1] of char;
     MyMessageNo: Int64;
     MyLen: Int32;
@@ -551,7 +552,10 @@ begin
   end;
 end;
 
+
 var MyMenu: String;
+    MyIniFileName: String;
+
 begin
   heaptrc.printfaultyblock := True;
   heaptrc.printleakedblock := True;
@@ -568,6 +572,8 @@ begin
   LongTimeFormat:='hh:nn:ss.zzz';
   ShortTimeFormat:='hh:nn:ss.zzz';
 
+  MyIniFileName := '.\KafkaGate.ini';
+
 
   DumpKafkaVersion;
   while true do begin
@@ -576,20 +582,85 @@ begin
     writeln('2. Start producer - C Style');
     writeln('3. Start consumer - Pas Style');
     writeln('4. Start producer - Pas Style');
+    writeln('');
+    writeln('******************************');
+    writeln('KAFKA 2 ZEROMQ');
+    writeln('config_file: kafka2zero.ini');
+    writeln('Purpose of this pipeline is');
+    writeln('- put message to kafka->consume message from kafka->send message to 0mq->receive message from 0mq');
+    writeln('******************************');
+    writeln('11. Start Kafka Producer');
+    writeln('12. Start Kafka Consumer -> Start ZEROMQ PUSH');
+    writeln('13. Start ZEROMQ PULL');
+    writeln('');
+    writeln('******************************');
+    writeln('KAFKA 2 ZEROMQ');
+    writeln('config_file: zero2kafka.ini');
+    writeln('Purpose of this pipeline is');
+    writeln('- put message to 0mq->consume message from 0mq->send message to kafka->receive message from kafka');
+    writeln('******************************');
+    writeln('21. Start ZERMOQ Producer PUSH');
+    writeln('22. Start ZEROMQ PULL -> Kafka Producer');
+    writeln('23. Start Kafka Consumer');
+    writeln('');
+    writeln('');
+    writeln('');
     writeln('X. Exit');
     Readln(MyMenu);
     if MyMenu = '1' then begin
       ConsumeKafka_CStyle;
+      Write('Press Any Key To Continue...');
+      Readln;
     end
     else if MyMenu = '2' then begin
       ProduceKafka_CStyle;
+      Write('Press Any Key To Continue...');
+      Readln;
     end
     else if MyMenu = '3' then begin
       Consume_PasStyle;
+      Write('Press Any Key To Continue...');
+      Readln;
     end
     else if MyMenu = '4' then begin
       Produce_PasStyle;
+      Write('Press Any Key To Continue...');
+      Readln;
     end
+
+    else if MyMenu = '11' then begin
+      StartKafkaProducer_11(MyIniFileName);
+      Write('Press Any Key To Continue...');
+      Readln;
+    end
+    else if MyMenu = '12' then begin
+      StartKafkaConsumer_12(MyIniFileName);
+      Write('Press Any Key To Continue...');
+      Readln;
+    end
+    else if MyMenu = '13' then begin
+      StartZeroMQConsumer_13(MyIniFileName);
+      Write('Press Any Key To Continue...');
+      Readln;
+    end
+
+    else if MyMenu = '21' then begin
+      StartZeroMQProducer_21(MyIniFileName);
+      Write('Press Any Key To Continue...');
+      Readln;
+    end
+    else if MyMenu = '22' then begin
+      StartZeroMQConsumer_22(MyIniFileName);
+      Write('Press Any Key To Continue...');
+      Readln;
+    end
+    else if MyMenu = '23' then begin
+      StartKafkaConsumer_23(MyIniFileName);
+      Write('Press Any Key To Continue...');
+      Readln;
+    end
+
+
     else if UpperCase(MyMenu) = 'X' then begin
       Break;
     end;

@@ -77,7 +77,7 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <Units Count="5">
+    <Units Count="7">
       <Unit0>
         <Filename Value="KafkaGate.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -101,6 +101,16 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="KafkaClass"/>
       </Unit4>
+      <Unit5>
+        <Filename Value="kafka2zero.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Kafka2Zero"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="zero2kafka.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Zero2Kafka"/>
+      </Unit6>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -116,7 +126,7 @@
     </SearchPaths>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="4">
+    <Exceptions Count="5">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -129,6 +139,9 @@
       <Item4>
         <Name Value="EConvertError"/>
       </Item4>
+      <Item5>
+        <Name Value="E0MQError"/>
+      </Item5>
     </Exceptions>
   </Debugging>
 </CONFIG>

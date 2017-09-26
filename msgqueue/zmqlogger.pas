@@ -53,6 +53,8 @@ type
     msg_id_client: int64;        // client message id
   end;
 
+  TProcCustomSaveLog = procedure (var InMsg: T0MQLogRecord) of object;
+
   { TLogThreadSaver }
 
   // This class is used to save log message to database
@@ -73,11 +75,17 @@ type
     _ConnectionParams: TFavRecConnection;
     _Query: TFavQuery;
 
+    _ConnectionLogName: TFavString;
+
+    _CustomSaveLog: TProcCustomSaveLog;
+
     constructor Create(InThreadNo: Integer; InConnectionParams: TFavRecConnection; InQueue: TFavQueue);
     destructor Destroy; override;
 
     procedure SaveLog(InString: String);
     procedure SendShutDownMessage;
+
+    procedure SetCustomeSaveLog(InCustomSaveLog: TProcCustomSaveLog);
   end;
 
 
@@ -123,7 +131,6 @@ type
     procedure ConnectToLogServer;                  // connecto to log server
     procedure SendLogMessage(InString: String);    // send one log message string
     procedure SendShutDownMessage;                 // send shutdown message for queue
-    procedure ShutDown;                            // send shutdowm message and wait for the end
   end;
 
 const LOG_LEVEL_DEBUG = 'DEBUG';
@@ -337,17 +344,6 @@ begin
   end;
 end;
 
-procedure TLogThreadForwarder.ShutDown;
-begin
-  SendShutDownMessage;
-  while true do begin
-    if _BFinished then begin
-      Break;
-    end;
-    Sleep(10);
-  end;
-end;
-
 { TLogThreadSaver }
 
 procedure TLogThreadSaver.Execute;
@@ -369,12 +365,15 @@ end;
 constructor TLogThreadSaver.Create(InThreadNo: Integer;
   InConnectionParams: TFavRecConnection; InQueue: TFavQueue);
 begin
+  _CustomSaveLog := nil;
   _BFinished := False;
   _PQueue := InQueue;
   _ThreadNo := InThreadNo;
   _ConnectionParams := InConnectionParams;
 
   _Connection := LogCreateDBConnection(_ConnectionParams);
+
+  _ConnectionLogName := 'Connection_' + FavToString(_ThreadNo) + '.log';
 
   _Query := TFavQuery.Create(nil);
   LogPrepareQuery(_Connection, _Query);
@@ -413,41 +412,48 @@ begin
     MyLog := InitT0MQLogRecord;
     LogDecode(InString, MyLog);
 
-    MyIStartedTransaction := FavDbUtils.FavDBStartTransaction(_ProtoLog, _ProtoErr, _Connection);
+//    if FavDBCheckConnection(_Connection, _ConnectionLogName) then begin
+    if FavDBCheckConnection(_Connection, '') then begin
+      MyIStartedTransaction := FavDbUtils.FavDBStartTransaction(_ProtoLog, _ProtoErr, _Connection);
 
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'msg_in', MyLog.msg_in);
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'msg_out', MyLog.msg_out);
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'debug_info', MyLog.debug_info);
+      if _CustomSaveLog <> nil then begin
+        _CustomSaveLog(MyLog);
+      end;
 
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'debug_level', MyLog.debug_level, 16);
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'severity', MyLog.severity);
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'message_type', MyLog.message_type, 32);
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'code', MyLog.code);
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'msg_in', MyLog.msg_in);
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'msg_out', MyLog.msg_out);
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'debug_info', MyLog.debug_info);
 
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'duration', MyLog.duration);
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'duration_prepare', MyLog.duration_prepare);
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'msg_size', MyLog.msg_size);
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'debug_level', MyLog.debug_level, 16);
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'severity', MyLog.severity);
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'message_type', MyLog.message_type, 32);
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'code', MyLog.code);
 
-    FavDBSetParamDateTime(_ProtoLog, _ProtoErr, MyQuery, 'client_timestamp', MyLog.client_timestamp);
-    FavDBSetParamDateTime(_ProtoLog, _ProtoErr, MyQuery, 'server_timestamp', FavUTCNow);
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'duration', MyLog.duration);
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'duration_prepare', MyLog.duration_prepare);
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'msg_size', MyLog.msg_size);
 
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'address', MyLog.address, 32);
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'application', MyLog.application, 32);
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'application_path', MyLog.application_path, 128);
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'application_version', MyLog.application_version, 32);
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'os', MyLog.os, 32);
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'os_version', MyLog.os_version, 32);
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'thread', MyLog.thread);
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'main_thread', FavToString(MyLog.main_thread));
+      FavDBSetParamDateTime(_ProtoLog, _ProtoErr, MyQuery, 'client_timestamp', MyLog.client_timestamp);
+      FavDBSetParamDateTime(_ProtoLog, _ProtoErr, MyQuery, 'server_timestamp', FavUTCNow);
 
-    FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'msg_id_client', FavToString(MyLog.msg_id_client));
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'address', MyLog.address, 32);
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'application', MyLog.application, 32);
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'application_path', MyLog.application_path, 128);
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'application_version', MyLog.application_version, 32);
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'os', MyLog.os, 32);
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'os_version', MyLog.os_version, 32);
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'thread', MyLog.thread);
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'main_thread', FavToString(MyLog.main_thread));
 
-    FavDBExecQuery(_ProtoLog, _ProtoErr, MyQuery);
-    FavDBCloseQuery(_ProtoLog, _ProtoErr, MyQuery);
+      FavDBSetParam(_ProtoLog, _ProtoErr, MyQuery, 'msg_id_client', FavToString(MyLog.msg_id_client));
 
-    if MyIStartedTransaction then begin
-      FavDbUtils.FavDBCommitTransaction(_ProtoLog, _ProtoErr, _Connection);
-      MyIStartedTransaction := False;
+      FavDBExecQuery(_ProtoLog, _ProtoErr, MyQuery);
+      FavDBCloseQuery(_ProtoLog, _ProtoErr, MyQuery);
+
+      if MyIStartedTransaction then begin
+        FavDbUtils.FavDBCommitTransaction(_ProtoLog, _ProtoErr, _Connection);
+        MyIStartedTransaction := False;
+      end;
     end;
 
   except
@@ -480,6 +486,12 @@ begin
   while _BFinished = False do begin
     Sleep(1)
   end;
+end;
+
+procedure TLogThreadSaver.SetCustomeSaveLog(InCustomSaveLog: TProcCustomSaveLog
+  );
+begin
+  _CustomSaveLog := InCustomSaveLog;
 end;
 
 

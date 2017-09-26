@@ -12,7 +12,9 @@ uses
 {$ENDIF}
 
 const
-  RD_KAFKA_VERSION_STRING  = $000905ff;
+//  RD_KAFKA_VERSION_STRING  = $000905ff;
+  RD_KAFKA_VERSION_STRING  = $000b00ff;
+
   RD_KAFKA_PARTITION_UA  = -1;
 
   RD_KAFKA_MSG_F_FREE  = $1; // Delegate freeing of payload to rdkafka.
@@ -89,7 +91,6 @@ type
 
 
 
-
 const
   RD_EXPORT = 'librdkafka.dll';
 
@@ -153,6 +154,14 @@ Const
   RD_KAFKA_RESP_ERR__TIMED_OUT_QUEUE = -(166);
   RD_KAFKA_RESP_ERR__UNSUPPORTED_FEATURE = -(165);
   RD_KAFKA_RESP_ERR__WAIT_CACHE = -(164);
+
+  RD_KAFKA_RESP_ERR__INTR = -(163);
+  RD_KAFKA_RESP_ERR__KEY_SERIALIZATION = -(162);
+  RD_KAFKA_RESP_ERR__VALUE_SERIALIZATION = -(161);
+  RD_KAFKA_RESP_ERR__KEY_DESERIALIZATION = -(160);
+  RD_KAFKA_RESP_ERR__VALUE_DESERIALIZATION = -(159);
+
+
   RD_KAFKA_RESP_ERR__END = -(100);
   RD_KAFKA_RESP_ERR_UNKNOWN = -(1);
   RD_KAFKA_RESP_ERR_NO_ERROR = 0;
@@ -199,7 +208,30 @@ Const
   RD_KAFKA_RESP_ERR_NOT_CONTROLLER = 41;
   RD_KAFKA_RESP_ERR_INVALID_REQUEST = 42;
   RD_KAFKA_RESP_ERR_UNSUPPORTED_FOR_MESSAGE_FORMAT = 43;
-  RD_KAFKA_RESP_ERR_END_ALL = 44;
+
+  RD_KAFKA_RESP_ERR_POLICY_VIOLATION = 44;
+  RD_KAFKA_RESP_ERR_OUT_OF_ORDER_SEQUENCE_NUMBER = 45;
+  RD_KAFKA_RESP_ERR_DUPLICATE_SEQUENCE_NUMBER = 46;
+  RD_KAFKA_RESP_ERR_INVALID_PRODUCER_EPOCH = 47;
+  RD_KAFKA_RESP_ERR_INVALID_TXN_STATE = 48;
+  RD_KAFKA_RESP_ERR_INVALID_PRODUCER_ID_MAPPING = 49;
+  RD_KAFKA_RESP_ERR_INVALID_TRANSACTION_TIMEOUT = 50;
+  RD_KAFKA_RESP_ERR_CONCURRENT_TRANSACTIONS = 51;
+  RD_KAFKA_RESP_ERR_TRANSACTION_COORDINATOR_FENCED = 52;
+  RD_KAFKA_RESP_ERR_TRANSACTIONAL_ID_AUTHORIZATION_FAILED = 53;
+  RD_KAFKA_RESP_ERR_SECURITY_DISABLED = 54;
+  RD_KAFKA_RESP_ERR_OPERATION_NOT_ATTEMPTED = 55;
+
+  RD_KAFKA_RESP_ERR_END_ALL = 999;
+
+  LIB_RD_KAFKA_EVENT_NONE          = $0;
+  LIB_RD_KAFKA_EVENT_DR            = $1;
+  LIB_RD_KAFKA_EVENT_FETCH         = $2;
+  LIB_RD_KAFKA_EVENT_LOG           = $4;
+  LIB_RD_KAFKA_EVENT_ERROR         = $8;
+  LIB_RD_KAFKA_EVENT_REBALANCE     = $10;
+  LIB_RD_KAFKA_EVENT_OFFSET_COMMIT = $20;
+  LIB_RD_KAFKA_EVENT_STATS         = $40;
 
 
 type
@@ -632,8 +664,8 @@ procedure rd_kafka_destroy(rk: Prd_kafka_t); cdecl; EXTERNAL RD_EXPORT;
 function  rd_kafka_name(rk: Prd_kafka_t): PChar; cdecl; EXTERNAL RD_EXPORT;
 function  rd_kafka_type(rk: Prd_kafka_t): Trd_kafka_type_t; cdecl; EXTERNAL RD_EXPORT;
 function  rd_kafka_memberid (rk: Prd_kafka_t): PChar; cdecl; EXTERNAL RD_EXPORT;
+function  rd_kafka_clusterid (rk: Prd_kafka_t; timeout_ms: Int32): PChar; cdecl; EXTERNAL RD_EXPORT;
 
-function rd_kafka_clusterid (rk: Prd_kafka_t; timeout_ms: Int32 ): PChar; cdecl; EXTERNAL RD_EXPORT;
 function  rd_kafka_topic_new(rk: Prd_kafka_t; topic: PChar; conf: Prd_kafka_topic_conf_t): Prd_kafka_topic_t; cdecl; EXTERNAL RD_EXPORT;
 procedure rd_kafka_topic_destroy(rkt: Prd_kafka_topic_t); cdecl; EXTERNAL RD_EXPORT;
 function  rd_kafka_topic_name(rkt: Prd_kafka_topic_t): PChar; cdecl; EXTERNAL RD_EXPORT;
@@ -709,6 +741,9 @@ function  rd_kafka_outq_len(rk: Prd_kafka_t): Int32; cdecl; EXTERNAL RD_EXPORT;
 procedure rd_kafka_dump(fp: Pointer; rk: Prd_kafka_t); cdecl; EXTERNAL RD_EXPORT;
 function  rd_kafka_thread_cnt: Int32; cdecl; EXTERNAL RD_EXPORT;
 function  rd_kafka_wait_destroyed(timeout_ms: Int32): Int32; cdecl; EXTERNAL RD_EXPORT;
+function  rd_kafka_unittest: Int32; cdecl; EXTERNAL RD_EXPORT;
+
+
 
 function  rd_kafka_poll_set_consumer (rk: Prd_kafka_t): Trd_kafka_resp_err_t; cdecl; EXTERNAL RD_EXPORT;
 
@@ -722,6 +757,8 @@ function  rd_kafka_event_error (rkev: Prd_kafka_event_t): Trd_kafka_resp_err_t; 
 function  rd_kafka_event_error_string (rkev: Prd_kafka_event_t): PChar; cdecl; EXTERNAL RD_EXPORT;
 function  rd_kafka_event_opaque(rkev: Prd_kafka_event_t): Pointer; cdecl; EXTERNAL RD_EXPORT;
 function  rd_kafka_event_log (rkev: Prd_kafka_event_t; var fac: PChar; var str: PChar; var level: int32): Int32; cdecl; EXTERNAL RD_EXPORT;
+function  rd_kafka_event_stats (rkev: Prd_kafka_event_t): PChar; cdecl; EXTERNAL RD_EXPORT;
+
 
 function  rd_kafka_event_topic_partition_list (rkev: Prd_kafka_event_t): Prd_kafka_topic_partition_list_t; cdecl; EXTERNAL RD_EXPORT;
 function  rd_kafka_event_topic_partition (rkev: Prd_kafka_event_t): Prd_kafka_topic_partition_t; cdecl; EXTERNAL RD_EXPORT;
