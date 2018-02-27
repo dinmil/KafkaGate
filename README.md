@@ -40,3 +40,10 @@ On the other hand Apache Kafka is message queue broker. So if you like ZeroMQ, b
 <br>writeln('22. Start ZEROMQ PULL -> Kafka Producer');
 <br>writeln('23. Start Kafka Consumer');
 </p>
+
+
+New in this version from 2018-02-27
+New librdkafka 11.3
+Compatibility with Linux 32 and Linux 64
+New Way to sebd message in Kafka Pas Application
+Compiled with new Code Typhon 6.40
