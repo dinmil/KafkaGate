@@ -6,6 +6,19 @@ It contain examples for Win64 and Win32 (but it should be portable to Linux, etc
 There are two ways how to write FreePascal Kafka application. 
 One way is C procedural style, and the other one is Object Pascal Style.
 
+</br>
+New in this version from 2018-02-27
+</br>
+New librdkafka 11.3
+</br>
+Compatibility with Linux 32 and Linux 64
+</br>
+New Way to sebd message in Kafka Pas Application
+</br>
+Compiled with new Code Typhon 6.40
+</br>
+
+
 KafkaPas is example how to create Kafka GUI application. 
 KafkaGate is example how to create console application. This application is usefull if you want to connect ZeroMQ Socket and Kafka Topic. You can send and receive messages between them. 
 
@@ -42,14 +55,3 @@ On the other hand Apache Kafka is message queue broker. So if you like ZeroMQ, b
 </p>
 
 
-</br>
-New in this version from 2018-02-27
-</br>
-New librdkafka 11.3
-</br>
-Compatibility with Linux 32 and Linux 64
-</br>
-New Way to sebd message in Kafka Pas Application
-</br>
-Compiled with new Code Typhon 6.40
-</br>
