@@ -137,7 +137,7 @@ typedef SSIZE_T ssize_t;
  * @remark This value should only be used during compile time,
  *         for runtime checks of version use rd_kafka_version()
  */
-#define RD_KAFKA_VERSION  0x000b00ff
+#define RD_KAFKA_VERSION  0x000b03ff
 
 /**
  * @brief Returns the librdkafka version as integer.
@@ -324,6 +324,8 @@ typedef enum {
         RD_KAFKA_RESP_ERR__KEY_DESERIALIZATION = -160,
         /** Value deserialization error */
         RD_KAFKA_RESP_ERR__VALUE_DESERIALIZATION = -159,
+        /** Partial response */
+        RD_KAFKA_RESP_ERR__PARTIAL = -158,
 
 	/** End internal error codes */
 	RD_KAFKA_RESP_ERR__END = -100,
@@ -1906,8 +1908,14 @@ rd_kafka_get_watermark_offsets (rd_kafka_t *rk,
  * @remark Duplicate Topic+Partitions are not supported.
  * @remark Per-partition errors may be returned in \c rd_kafka_topic_partition_t.err
  *
- * @returns an error code for general errors, else RD_KAFKA_RESP_ERR_NO_ERROR
- *          in which case per-partition errors might be set.
+ * @returns RD_KAFKA_RESP_ERR_NO_ERROR if offsets were be queried (do note
+ *          that per-partition errors might be set),
+ *          RD_KAFKA_RESP_ERR__TIMED_OUT if not all offsets could be fetched
+ *          within \p timeout_ms,
+ *          RD_KAFKA_RESP_ERR__INVALID_ARG if the \p offsets list is empty,
+ *          RD_KAFKA_RESP_ERR__UNKNOWN_PARTITION if all partitions are unknown,
+ *          RD_KAFKA_RESP_ERR_LEADER_NOT_AVAILABLE if unable to query leaders
+ *          for the given partitions.
  */
 RD_EXPORT rd_kafka_resp_err_t
 rd_kafka_offsets_for_times (rd_kafka_t *rk,
@@ -2357,7 +2365,7 @@ rd_kafka_resp_err_t rd_kafka_offset_store(rd_kafka_topic_t *rkt,
 
 
 /**
- * @brief Store offsets for one or more partitions.
+ * @brief Store offsets for next auto-commit for one or more partitions.
  *
  * The offset will be committed (written) to the offset store according
  * to \c `auto.commit.interval.ms` or manual offset-less commit().
@@ -2367,8 +2375,10 @@ rd_kafka_resp_err_t rd_kafka_offset_store(rd_kafka_topic_t *rkt,
  *
  * @remark \c `enable.auto.offset.store` must be set to "false" when using this API.
  *
- * @returns RD_KAFKA_RESP_ERR_NO_ERROR on success or an error code if
- *          none of the offsets could be stored.
+ * @returns RD_KAFKA_RESP_ERR_NO_ERROR on success, or
+ *          RD_KAFKA_RESP_ERR__UNKNOWN_PARTITION if none of the
+ *          offsets could be stored, or
+ *          RD_KAFKA_RESP_ERR__INVALID_ARG if \c enable.auto.offset.store is true.
  */
 RD_EXPORT rd_kafka_resp_err_t
 rd_kafka_offsets_store(rd_kafka_t *rk,
@@ -2917,10 +2927,21 @@ struct rd_kafka_group_list {
  * \p timeout_ms is the (approximate) maximum time to wait for response
  * from brokers and must be a positive value.
  *
- * @returns \p RD_KAFKA_RESP_ERR__NO_ERROR on success and \p grplistp is
+ * @returns \c RD_KAFKA_RESP_ERR__NO_ERROR on success and \p grplistp is
  *           updated to point to a newly allocated list of groups.
- *           Else returns an error code on failure and \p grplistp remains
- *           untouched.
+ *           \c RD_KAFKA_RESP_ERR__PARTIAL if not all brokers responded
+ *           in time but at least one group is returned in  \p grplistlp.
+ *           \c RD_KAFKA_RESP_ERR__TIMED_OUT if no groups were returned in the
+ *           given timeframe but not all brokers have yet responded, or
+ *           if the list of brokers in the cluster could not be obtained within
+ *           the given timeframe.
+ *           \c RD_KAFKA_RESP_ERR__TRANSPORT if no brokers were found.
+ *           Other error codes may also be returned from the request layer.
+ *
+ *           The \p grplistp remains untouched if any error code is returned,
+ *           with the exception of RD_KAFKA_RESP_ERR__PARTIAL which behaves
+ *           as RD_KAFKA_RESP_ERR__NO_ERROR (success) but with an incomplete
+ *           group list.
  *
  * @sa Use rd_kafka_group_list_destroy() to release list memory.
  */
