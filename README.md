@@ -1,6 +1,6 @@
 # KafkaGate
 
-This library shows how to use Apache Kafka and FreePascal (CodeTyphon 6.0, Lazarus)
+This library shows how to use Apache Kafka and FreePascal (CodeTyphon 6.40, Lazarus)
 This is translation of librdkafka C library (and it contain ZeroMQ wrapper also). 
 It contain examples for Win64 and Win32 (but it should be portable to Linux, etc..)
 There are two ways how to write FreePascal Kafka application. 
