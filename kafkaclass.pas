@@ -992,7 +992,7 @@ begin
     MyStrings := nil;
     try
       MyStrings := TStringList.Create;
-      InIniFile.ReadSection(OutKafkaSetup.topic_section, MyStrings);
+      InIniFile.ReadSectionValues(OutKafkaSetup.topic_section, MyStrings, []);
       MyStrings.TextLineBreakStyle := tlbsCR;
       OutKafkaSetup.topic_properties := MyStrings.Text;
       if MyStrings <> nil then FreeAndNil(MyStrings);
