@@ -1,90 +1,680 @@
 #EXTM3U
-#EXTINF:0,ARENA SPORT 1
-http://rexshx.com:25461/live/lista60/Gu78JDA5d6/286.ts
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",ARENA SPORT 1
-http://cdn1.stbconnect.com:25461/live/VROVQVALYX/TLIouEBlcB/898.m3u8?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",ARENA SPORT 1
-http://cdn1.stbconnect.com:25461/SFRa5oBeKo/l34i9fX1MI/898?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",ARENA SPORT 1
-http://cdn1.stbconnect.com:25461/live/SFRa5oBeKo/l34i9fX1MI/898.m3u8?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",ARENA SPORT 2
-http://cdn1.stbconnect.com:25461/live/VROVQVALYX/TLIouEBlcB/897.m3u8?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",ARENA SPORT 2
-http://cdn1.stbconnect.com:25461/SFRa5oBeKo/l34i9fX1MI/897?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",ARENA SPORT 2
-http://cdn1.stbconnect.com:25461/live/SFRa5oBeKo/l34i9fX1MI/897.m3u8?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",ARENA SPORT 3
-http://cdn1.stbconnect.com:25461/live/VROVQVALYX/TLIouEBlcB/896.m3u8?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",ARENA SPORT 3
-http://cdn1.stbconnect.com:25461/SFRa5oBeKo/l34i9fX1MI/896?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",ARENA SPORT 3
-http://cdn1.stbconnect.com:25461/live/SFRa5oBeKo/l34i9fX1MI/896.m3u8?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",ARENA SPORT 4
-http://cdn1.stbconnect.com:25461/SFRa5oBeKo/l34i9fX1MI/895?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",ARENA SPORT 4
-http://cdn1.stbconnect.com:25461/live/SFRa5oBeKo/l34i9fX1MI/895.m3u8?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",ARENA SPORT1 HR
-http://cdn1.stbconnect.com:25461/live/VROVQVALYX/TLIouEBlcB/893.m3u8?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",ARENA SPORT1 HR
-http://cdn1.stbconnect.com:25461/SFRa5oBeKo/l34i9fX1MI/893?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",ARENA SPORT1 HR
-http://cdn1.stbconnect.com:25461/live/SFRa5oBeKo/l34i9fX1MI/893.m3u8?checkedby:hlscat.com
-#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 1
-http://cdn1.stbconnect.com:25461/VROVQVALYX/TLIouEBlcB/898?checkedby:hlscat.com
-#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 1 (SR)
-http://premium-iptv.link:7899/live/live:83051d549bd7a7e3/MxhkBW9olI/30759.m3u8?checkedby:hlscat.com
-#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 1 HD (HR)
-http://rv.therevenge.co:80/477846155654/477846155654/85183?checkedby:hlscat.com
-#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 2
-http://cdn1.stbconnect.com:25461/VROVQVALYX/TLIouEBlcB/897?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 1 BIH
+http://bazarhd.online:80/307210113622/307210113622/85188?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 1 SR
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/424?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 2 HD (HR)
+http://bazarhd.online:80/307210113622/307210113622/85182?checkedby:hlscat.com
 #EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 2 HD (SR)
-http://premium-iptv.link:7899/live/live:83051d549bd7a7e3/MxhkBW9olI/28268.m3u8?checkedby:hlscat.com
-#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 3
-http://cdn1.stbconnect.com:25461/VROVQVALYX/TLIouEBlcB/896?checkedby:hlscat.com
-#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 3 (SR)
-http://premium-iptv.link:7899/live/live:83051d549bd7a7e3/MxhkBW9olI/31021.m3u8?checkedby:hlscat.com
+http://bazarhd.online:80/307210113622/307210113622/85186?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 2 SR
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/425?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 3 HD (HR)
+http://bazarhd.online:80/307210113622/307210113622/85181?checkedby:hlscat.com
 #EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 3 HD (SR)
-http://rv.therevenge.co:80/477846155654/477846155654/85185?checkedby:hlscat.com
-#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 4
-http://cdn1.stbconnect.com:25461/VROVQVALYX/TLIouEBlcB/895?checkedby:hlscat.com
-#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 4 HD (SR)
-http://premium-iptv.link:7899/live/live:83051d549bd7a7e3/MxhkBW9olI/31022.m3u8?checkedby:hlscat.com
-#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT1 HR
-http://cdn1.stbconnect.com:25461/VROVQVALYX/TLIouEBlcB/893?checkedby:hlscat.com
-#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",Arena sport 2 HD
-http://premium-iptv.link:7899/live/live:83051d549bd7a7e3/MxhkBW9olI/401.m3u8?checkedby:hlscat.com 
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",SKY SPORT ARENA FULL HD
-http://seeyoutv.net:2300/parigi/parigi/10407?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",SKY SPORT ARENA HD
-http://seeyoutv.net:2300/parigi/parigi/10406?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",SKY SPORT ARENA SD
-http://seeyoutv.net:2300/parigi/parigi/10405?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",Sky Sport Arena HD
-http://worldboss.selfip.biz:18659/live/Felix1/Felix1/45.m3u8?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",Sky Sport Arena UHD
-http://worldboss.selfip.biz:18659/live/Felix1/Felix1/24321.m3u8?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Sport",Sport Arena  ADSL LENTA
-http://worldboss.selfip.biz:18659/live/Felix1/Felix1/16053.m3u8?checkedby:hlscat.com
-#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Undefined",TELE ARENA
-http://wma07.fluidstream.net:1935/TeleArena/livestream/live.m3u8?checkedby:hlscat.com
-#EXTINF:0 tvg-country="GB" tvg-logo="" group-title="Sport",SKY SPORTS ARENA
-http://185.232.53.5:2086/arellano/kgtL965n2Y/85931?checkedby:hlscat.com
-#EXTINF:0 tvg-country="GB" tvg-logo="" group-title="Sport",SKY SPORTS ARENA
-http://185.232.53.5:2086/gennaro/gennaro/85931?checkedby:hlscat.com
-#EXTINF:0 tvg-country="GB" tvg-logo="" group-title="Sport",SKY SPORTS ARENA
-http://rv.therevenge.co:80/477846155654/477846155654/79938?checkedby:hlscat.com
-#EXTINF:0 tvg-country="GB" tvg-logo="" group-title="Sport",SKY SPORTS ARENA
-http://rv.therevenge.co:80/477846155654/477846155654/79983?checkedby:hlscat.com
-#EXTINF:0 tvg-country="GB" tvg-logo="" group-title="Sport",SKY SPORTS ARENA
-http://62.182.80.246:80/Y5sxum7wrn/H1Ed1j2NDb/79938?checkedby:hlscat.com
-#EXTINF:0 tvg-country="GB" tvg-logo="" group-title="Sport",SKY SPORTS ARENA
-http://62.182.80.246:80/Y5sxum7wrn/H1Ed1j2NDb/79962?checkedby:hlscat.com
-#EXTINF:0 tvg-country="GB" tvg-logo="" group-title="Sport",SKY SPORTS ARENA
-http://62.182.80.246:80/Y5sxum7wrn/H1Ed1j2NDb/79983?checkedby:hlscat.com
-#EXTINF:0 tvg-country="GB" tvg-logo="" group-title="Sport",SKY Sports Arena
-http://red.ipfox.org:8080/spider_w8pZny/JhrlVOgV/24157?checkedby:hlscat.com
-#EXTINF:0 tvg-country="GB" tvg-logo="" group-title="Sport",Sky Sport Arena HD
-http://premium-iptv.link:7899/live/live:83051d549bd7a7e3/MxhkBW9olI/10165.m3u8?checkedby:hlscat.com
+http://bazarhd.online:80/307210113622/307210113622/85185?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 3 SR
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/426?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 4 SR
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/427?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 5 HD (HR)
+http://bazarhd.online:80/307210113622/307210113622/85179?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 6 HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1298?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",Arena Sport 1 HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/48?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",Arena Sport 2 HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/49?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",Arena Sport 3 HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/50?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",Arena Sport 4 HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/51?checkedby:hlscat.com 
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",SPORTKLUB HD
+http://bazarhd.online:80/307210113622/307210113622/85202?checkedby:hlscat.com 
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",EUROSPORT 1 HD
+http://bazarhd.online:80/307210113622/307210113622/85178?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",EUROSPORT 2 HD
+http://bazarhd.online:80/307210113622/307210113622/85177?checkedby:hlscat.com 
+
+
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",SPORT KLUB 1(HR)
+http://bazarhd.online:80/307210113622/307210113622/85198?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",SPORT KLUB 2 (HR)
+http://bazarhd.online:80/307210113622/307210113622/85197?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",SPORT KLUB 3 (HR)
+http://bazarhd.online:80/307210113622/307210113622/85196?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",SPORT KLUB 5 (HR)
+http://bazarhd.online:80/307210113622/307210113622/85194?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",SPORT KLUB 7 (HR)
+http://bazarhd.online:80/307210113622/307210113622/85192?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",SPORTKLUB HD
+http://bazarhd.online:80/307210113622/307210113622/85202?checkedby:hlscat.com 
+
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",N1 BiH
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1325?checkedby:hlscat.com 
+
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",ANIMAL PLANET
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1150?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",ANIMAL PLANET
+http://bazarhd.online:80/307210113622/307210113622/85275?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",ANIMAL PLANET HD
+http://bazarhd.online:80/307210113622/307210113622/85274?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",PLANETSPORT 3
+http://bazarhd.online:80/307210113622/307210113622/85172?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",YU PLANET
+http://bazarhd.online:80/307210113622/307210113622/85212?checkedby:hlscat.com
+
+
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Undefined",MTV BRAND NEW
+http://185.63.254.40:80/912461531477289/840194034422592/183987?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Undefined",MTV Dance
+http://185.63.254.40:80/912461531477289/840194034422592/360063?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Undefined",MTV Hits
+http://185.63.254.40:80/912461531477289/840194034422592/183989?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Undefined",MTV KOSOVA
+http://185.63.254.40:80/912461531477289/840194034422592/183990?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Undefined",MTV Kosova
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/299?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Undefined",MTV Live HD
+http://185.63.254.40:80/912461531477289/840194034422592/183991?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Undefined",MTV Music
+http://185.63.254.40:80/912461531477289/840194034422592/183979?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Undefined",MTV LEBANON HD
+http://bazarhd.online:80/307210113622/307210113622/86546?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AZ" tvg-logo="" group-title="Undefined",MTV BRAND NEW
+http://plustlc.com:8080/live/altintas/03.04.2020/158182.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AZ" tvg-logo="" group-title="Undefined",MTV DANCE
+http://mfe.cliptv.az/dash/MTV_DANCE_SD.ism/playlist.mpd?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AZ" tvg-logo="" group-title="Undefined",MTV HITS
+http://mfe.cliptv.az/dash/MTV_HITS_SD.ism/playlist.mpd?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AZ" tvg-logo="" group-title="Undefined",MTV Hits
+http://plustlc.com:8080/live/altintas/03.04.2020/158183.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AZ" tvg-logo="" group-title="Undefined",MTV Hits
+http://plustlc.com:8080/live/altintas/03.04.2020/158184.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AZ" tvg-logo="" group-title="Undefined",MTV KOSOVA
+http://plustlc.com:8080/live/altintas/03.04.2020/158185.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AZ" tvg-logo="" group-title="Undefined",MTV Kosova
+http://iptvfree1.com:7899/live:.cid.9b5190e69349237e/hGYOfCADiS/19458?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AZ" tvg-logo="" group-title="Undefined",MTV Live HD
+http://plustlc.com:8080/live/altintas/03.04.2020/158186.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AZ" tvg-logo="" group-title="Undefined",MTV Live HD
+http://plustlc.com:8080/live/altintas/03.04.2020/158187.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AZ" tvg-logo="" group-title="Undefined",MTV Music
+http://plustlc.com:8080/live/altintas/03.04.2020/158188.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AZ" tvg-logo="" group-title="Undefined",MTV Music
+http://plustlc.com:8080/live/altintas/03.04.2020/158189.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AZ" tvg-logo="" group-title="Undefined",MTV RUSSIA
+http://mfe.cliptv.az/dash/MTV_Russian_SD.ism/playlist.mpd?checkedby:hlscat.com
+#EXTINF:0 tvg-country="BR" tvg-logo="" group-title="Undefined",MTV BRAZIL HD
+http://185.63.254.40:80/912461531477289/840194034422592/162455?checkedby:hlscat.com
+#EXTINF:0 tvg-country="BR" tvg-logo="" group-title="Undefined",MTV FHD
+http://tbsrv.me:8880/alfredo/alfredo/69779?checkedby:hlscat.com
+#EXTINF:0 tvg-country="BR" tvg-logo="" group-title="Undefined",MTV FHD
+http://tbsrv.me:8880/102030/102030/69779?checkedby:hlscat.com
+#EXTINF:0 tvg-country="BR" tvg-logo="" group-title="Undefined",MTV HD
+http://supersonictv.live:25461/903310/034806/73226?checkedby:hlscat.com
+#EXTINF:0 tvg-country="BR" tvg-logo="" group-title="Undefined",Mtv Live HD
+http://185.63.254.40:80/912461531477289/840194034422592/162456?checkedby:hlscat.com
+#EXTINF:0 tvg-country="BG" tvg-logo="" group-title="Undefined",MTV Base
+http://185.63.254.40:80/912461531477289/840194034422592/160396?checkedby:hlscat.com
+#EXTINF:0 tvg-country="CA" tvg-logo="" group-title="Undefined",MTV
+http://bazarhd.online:80/307210113622/307210113622/81242?checkedby:hlscat.com
+#EXTINF:0 tvg-country="CA" tvg-logo="" group-title="Undefined",MTV
+http://51.89.217.174:8080/4msgTd7EVW/wXFgmuoAgN/184023?checkedby:hlscat.com
+#EXTINF:0 tvg-country="CA" tvg-logo="" group-title="Undefined",MTV 2
+http://bazarhd.online:80/307210113622/307210113622/81241?checkedby:hlscat.com
+#EXTINF:0 tvg-country="CA" tvg-logo="" group-title="Undefined",MTV HD
+http://plustlc.com:8080/live/altintas/03.04.2020/162944.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="CA" tvg-logo="" group-title="Undefined",MTV LIVE FHD
+http://plustlc.com:8080/live/altintas/03.04.2020/162945.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FI" tvg-logo="" group-title="Undefined",MTV3 HD
+http://bazarhd.online:80/307210113622/307210113622/83040?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",BFMTV
+https://bfmtvalive1-a.akamaihd.net/1992d859ea9c46a4a5108ec10e1385b5/eu-central-1/876450610001/7b4151e1e2434a7cacdb9936db7a7910/playlist_ssaiM.m3u8?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",BFMTV HD
+http://iptv.re-stream.tv:7711/Carlos/12345/56550?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",BFMTV HD
+http://iptv.re-stream.tv:7711/Elias/12345/56550?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV
+http://bazarhd.online:80/307210113622/307210113622/78645?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV DANCE
+http://iptv.re-stream.tv:7711/Carlos/12345/9764?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV DANCE
+http://iptv.re-stream.tv:7711/Elias/12345/9764?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV FRANCE HD
+http://51.89.217.174:8080/w5qtonxB6v/hQDhWwqpnX/420456?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV France HD
+http://zaltv.ddnsco.com:8080/ztv1m97150/z8cs7/12062?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV France HD
+http://novabox.vip:8080/omarhalim/omr25481/54290?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV HD
+http://bazarhd.online:80/307210113622/307210113622/78306?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV HD
+http://bazarhd.online:80/307210113622/307210113622/78964?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV HD
+http://portal.electraservers.xyz:8000/wolkan/wolkan1/48780?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV HITS
+http://bazarhd.online:80/307210113622/307210113622/78643?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV HITS FRANCE HD
+http://supersonictv.live:25461/903310/034806/74634?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV HITS HD
+http://bazarhd.online:80/307210113622/307210113622/78304?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV HITS HD
+http://bazarhd.online:80/307210113622/307210113622/78962?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV HITS HD
+http://iptv.re-stream.tv:7711/Carlos/12345/9765?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV HITS HD
+http://portal.electraservers.xyz:8000/wolkan/wolkan1/48778?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV HITS HD
+http://iptv.re-stream.tv:7711/Elias/12345/9765?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV Hits FHD
+http://zaltv.ddnsco.com:8080/ztv1m97150/z8cs7/12061?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV Igman
+http://tvmedia2.com:8080/Hunter2/Hunter2/165493.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV Igman
+http://listamy.com:8080/lola/lola/353499?checkedby:hlscat.com
+#EXTINF:0 tvg-country="FR" tvg-logo="" group-title="Undefined",MTV UHD
+http://portal.electraservers.xyz:8000/wolkan/wolkan1/48941?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",MTV
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/559?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="https://images.pluto.tv/channels/5db6a697d5f34a000934cd13/colorLogoPNG.png" group-title="Undefined",MTV Catfish
+https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5db6a697d5f34a000934cd13/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=f1438745-0586-11eb-82fe-0242ac110002&deviceId=5db6a697d5f34a000934cd13&deviceVersion=DNT&appVersion=DNT&deviceDNT=1&userId=&advertisingId=&deviceLat=&deviceLon=&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=DE&serverSideAds=false&checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="https://images.pluto.tv/channels/5e7b855972c36600076b7ddd/colorLogoPNG.png" group-title="Undefined",MTV Catfish+
+https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5e7b855972c36600076b7ddd/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=4433ef8f-a215-466e-a65b-405518cd6e6c&deviceId=5e7b855972c36600076b7ddd&deviceVersion=DNT&appVersion=DNT&deviceDNT=1&userId=&advertisingId=&deviceLat=&deviceLon=&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=DE&serverSideAds=false&checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="https://images.pluto.tv/channels/5ea815a515d149000748ee9b/colorLogoPNG.png" group-title="Undefined",MTV Cribs
+https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5ea815a515d149000748ee9b/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=fb612cc2-0587-11eb-97af-0242ac110002&deviceId=5ea815a515d149000748ee9b&deviceVersion=DNT&appVersion=DNT&deviceDNT=1&userId=&advertisingId=&deviceLat=&deviceLon=&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=DE&serverSideAds=false&checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="https://images.pluto.tv/channels/5efb54eaa5714d000744b6a0/colorLogoPNG.png" group-title="Undefined",MTV Cribs+
+https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5efb54eaa5714d000744b6a0/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=f664f477-078c-4957-bc9a-51f90e3d9ce7&deviceId=5efb54eaa5714d000744b6a0&deviceVersion=DNT&appVersion=DNT&deviceDNT=1&userId=&advertisingId=&deviceLat=&deviceLon=&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=DE&serverSideAds=false&checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",MTV Dance
+http://iptv.re-stream.tv:7711/Carlos/12345/64247?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",MTV Dance
+http://mail.vipmek.com:8800/565656/565656/48055?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",MTV Dance
+http://portals.mdstream.net:8080/KibrisIPTV/YmPMinitW6536YmPMin/10337?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="https://images.pluto.tv/channels/5caf330ea5068259a32320fd/colorLogoPNG.png" group-title="Undefined",MTV Dating
+https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5caf330ea5068259a32320fd/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=4c740197-0587-11eb-a18c-0242ac110002&deviceId=5caf330ea5068259a32320fd&deviceVersion=DNT&appVersion=DNT&deviceDNT=1&userId=&advertisingId=&deviceLat=&deviceLon=&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=DE&serverSideAds=false&checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",MTV FHD
+http://iptv.re-stream.tv:7711/Carlos/12345/64248?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",MTV FHD
+http://iptvfree1.com:7899/live:.cid.9b5190e69349237e/hGYOfCADiS/7247?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",MTV HD
+http://bazarhd.online:80/307210113622/307210113622/83149?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",MTV HD
+http://bazarhd.online:80/307210113622/307210113622/81537?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",MTV HD
+http://iptv.re-stream.tv:7711/Carlos/12345/64246?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",MTV HD
+http://iptvfree1.com:7899/live:.cid.9b5190e69349237e/hGYOfCADiS/7577?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",MTV HD
+http://novabox.vip:8080/omarhalim/omr25481/55026?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",MTV HD+
+http://portals.mdstream.net:8080/KibrisIPTV/YmPMinitW6536YmPMin/1732?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",MTV Hits
+http://portals.mdstream.net:8080/KibrisIPTV/YmPMinitW6536YmPMin/10335?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",MTV Live HD
+http://mail.vipmek.com:8800/565656/565656/48056?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",MTV Music 24
+http://iptv.re-stream.tv:7711/Carlos/12345/64244?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",MTV Music 24
+http://portals.mdstream.net:8080/KibrisIPTV/YmPMinitW6536YmPMin/10334?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",MTV ROCKS
+http://portals.mdstream.net:8080/KibrisIPTV/YmPMinitW6536YmPMin/10333?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="https://images.pluto.tv/channels/5cffcf5686dfe15595fb3f56/featuredImage.jpg?w=750&fm=png" group-title="Undefined",MTV Teen Mom
+https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5cffcf5686dfe15595fb3f56/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=7ca1fec5-0587-11eb-aeab-0242ac110002&deviceId=5cffcf5686dfe15595fb3f56&deviceVersion=DNT&appVersion=DNT&deviceDNT=1&userId=&advertisingId=&deviceLat=&deviceLon=&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=DE&serverSideAds=false&checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="https://images.pluto.tv/channels/5d00e86bf0bac55fe7f75736/colorLogoPNG.png" group-title="Undefined",MTV The Hills
+https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5d00e86bf0bac55fe7f75736/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=a934c097-0587-11eb-8b9f-0242ac110002&deviceId=5d00e86bf0bac55fe7f75736&deviceVersion=DNT&appVersion=DNT&deviceDNT=1&userId=&advertisingId=&deviceLat=&deviceLon=&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=DE&serverSideAds=false&checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="https://images.pluto.tv/channels/5caf32c2a5068259a32320fc/colorLogoPNG.png" group-title="Undefined",MTV The Shores
+https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5caf32c2a5068259a32320fc/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=d49824ea-0587-11eb-82fe-0242ac110002&deviceId=5caf32c2a5068259a32320fc&deviceVersion=DNT&appVersion=DNT&deviceDNT=1&userId=&advertisingId=&deviceLat=&deviceLon=&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=DE&serverSideAds=false&checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",MTV UHD
+http://portal.electraservers.xyz:8000/wolkan/wolkan1/17953?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="https://images.pluto.tv/channels/5caf325764025859afdd6c4d/colorLogoPNG.png" group-title="Undefined",MTV pluto.tv
+https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5caf325764025859afdd6c4d/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=1b711cc8-0587-11eb-9df2-0242ac110002&deviceId=5caf325764025859afdd6c4d&deviceVersion=DNT&appVersion=DNT&deviceDNT=1&userId=&advertisingId=&deviceLat=&deviceLon=&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=DE&serverSideAds=false&checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="https://images.pluto.tv/channels/5dcebe53d352330009e56f5b/colorLogoPNG.png" group-title="Undefined",MTV pluto.tv+
+https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5dcebe53d352330009e56f5b/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=b3be0889-389b-4ef9-a876-b3d589aa6cd9&deviceId=5dcebe53d352330009e56f5b&deviceVersion=DNT&appVersion=DNT&deviceDNT=1&userId=&advertisingId=&deviceLat=&deviceLon=&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=DE&serverSideAds=false&checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",NICK+ /MTV
+http://bazarhd.online:80/307210113622/307210113622/83105?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",NICK+ /MTV
+http://bazarhd.online:80/307210113622/307210113622/81490?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DE" tvg-logo="" group-title="Undefined",NICK/MTV+ HD+
+http://portals.mdstream.net:8080/KibrisIPTV/YmPMinitW6536YmPMin/1728?checkedby:hlscat.com
+#EXTINF:0 tvg-country="GR" tvg-logo="" group-title="Undefined",MTV  VIP
+http://mail.vipmek.com:8800/565656/565656/35052?checkedby:hlscat.com
+#EXTINF:0 tvg-country="GR" tvg-logo="" group-title="Undefined",MTV BASE
+http://plustlc.com:8080/live/altintas/03.04.2020/152019.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="GR" tvg-logo="" group-title="Undefined",MTV BASE
+http://plustlc.com:8080/live/altintas/03.04.2020/152020.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="GR" tvg-logo="" group-title="Undefined",MTV Club
+http://plustlc.com:8080/live/altintas/03.04.2020/152021.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="GR" tvg-logo="" group-title="Undefined",MTV Dance HD
+http://plustlc.com:8080/live/altintas/03.04.2020/152022.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="GR" tvg-logo="" group-title="Undefined",MTV Dance HD
+http://plustlc.com:8080/live/altintas/03.04.2020/152023.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="GR" tvg-logo="" group-title="Undefined",MTV FHD
+http://plustlc.com:8080/live/altintas/03.04.2020/152024.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="GR" tvg-logo="" group-title="Undefined",MTV France FHD
+http://plustlc.com:8080/live/altintas/03.04.2020/152025.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="GR" tvg-logo="" group-title="Undefined",MTV HD
+http://truvaiptv.com:7777/ayberK/ayberK/70463?checkedby:hlscat.com
+#EXTINF:0 tvg-country="GR" tvg-logo="" group-title="Undefined",MTV HITS FHD
+http://plustlc.com:8080/live/altintas/03.04.2020/152026.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="GR" tvg-logo="" group-title="Undefined",MTV HITS FHD
+http://plustlc.com:8080/live/altintas/03.04.2020/152027.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="GR" tvg-logo="" group-title="Undefined",MTV Live
+http://plustlc.com:8080/live/altintas/03.04.2020/152028.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="GR" tvg-logo="" group-title="Undefined",MTV Live
+http://plustlc.com:8080/live/altintas/03.04.2020/152029.ts?checkedby:hlscat.com
+#EXTINF:0 tvg-country="GR" tvg-logo="" group-title="Undefined",MTV Music
+http://plustlc.com:8080/live/altintas/03.04.2020/152030.ts?checkedby:hlscat.com 
+
+
+
+
+#EXTINF:0 tvg-country="AF" tvg-logo="" group-title="Sport",RTA SPORTS HD
+http://bazarhd.online:80/307210113622/307210113622/83472?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Undefined",A1 Raport
+http://185.63.254.40:80/912461531477289/840194034422592/184087?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",ART SPORT 1 FHD
+http://185.63.254.40:80/912461531477289/840194034422592/184099?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",ART SPORT 1 HD
+http://bazarhd.online:80/307210113622/307210113622/81918?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",ART SPORT 2 FHD
+http://185.63.254.40:80/912461531477289/840194034422592/184100?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",ART SPORT 2 HD
+http://bazarhd.online:80/307210113622/307210113622/81917?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",ART SPORT 3 FHD
+http://185.63.254.40:80/912461531477289/840194034422592/184101?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",ART SPORT 3 HD
+http://bazarhd.online:80/307210113622/307210113622/81916?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",EUROSPORT 1
+http://185.63.254.40:80/912461531477289/840194034422592/184102?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",EUROSPORT 2 HD
+http://185.63.254.40:80/912461531477289/840194034422592/184104?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",K SPORT 1 HD
+http://bazarhd.online:80/307210113622/307210113622/81924?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",K SPORT 2 HD
+http://bazarhd.online:80/307210113622/307210113622/81923?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",K SPORT 4 HD
+http://bazarhd.online:80/307210113622/307210113622/81921?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",K SPORT 5 HD
+http://bazarhd.online:80/307210113622/307210113622/81920?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",K Sport 1
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1491?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",K Sport 2
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1492?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",K Sport 3
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1493?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",K Sport 3
+http://mail.vipmek.com:8800/565656/565656/6334?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",K Sport 4
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1494?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",KUJTESA SPORT 1 HD
+http://185.63.254.40:80/912461531477289/840194034422592/184112?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",KUJTESA SPORT 2 HD
+http://185.63.254.40:80/912461531477289/840194034422592/184113?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",KUJTESA SPORT 3
+http://185.63.254.40:80/912461531477289/840194034422592/184114?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",KUJTESA SPORT 4
+http://185.63.254.40:80/912461531477289/840194034422592/184115?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Kujtesa Sport 1
+http://iptv.re-stream.tv:7711/Carlos/12345/17685?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Kujtesa Sport 2
+http://iptv.re-stream.tv:7711/Carlos/12345/17686?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Kujtesa Sport 5
+http://185.63.254.40:80/912461531477289/840194034422592/360096?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Undefined",REPORT HD
+http://185.63.254.40:80/912461531477289/840194034422592/184091?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Undefined",REPORT TV
+http://bazarhd.online:80/307210113622/307210113622/82121?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",RTSH SPORT FHD
+http://185.63.254.40:80/912461531477289/840194034422592/184119?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",RTSH SPORT HD
+http://bazarhd.online:80/307210113622/307210113622/82163?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",RTSH Sport HD
+http://iptv.re-stream.tv:7711/Carlos/12345/17674?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Undefined",Report TV
+http://iptv.re-stream.tv:7711/Carlos/12345/17645?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",SUPER SPORT 1 4K
+http://bazarhd.online:80/307210113622/307210113622/81945?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",SUPER SPORT 1 HD
+http://bazarhd.online:80/307210113622/307210113622/81946?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",SUPER SPORT 2 4K
+http://bazarhd.online:80/307210113622/307210113622/81943?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",SUPER SPORT 2 HD
+http://bazarhd.online:80/307210113622/307210113622/81944?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",SUPER SPORT 3 4K
+http://bazarhd.online:80/307210113622/307210113622/81941?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",SUPER SPORT 3 HD
+http://bazarhd.online:80/307210113622/307210113622/81942?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",SUPER SPORT 4 4K (ONLY MATCH TIME)
+http://bazarhd.online:80/307210113622/307210113622/81939?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",SUPER SPORT 4 HD
+http://bazarhd.online:80/307210113622/307210113622/81940?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",SUPER SPORT 5 4K
+http://bazarhd.online:80/307210113622/307210113622/81937?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",SUPER SPORT 5 HD
+http://bazarhd.online:80/307210113622/307210113622/81938?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",SUPER SPORT 6 4K
+http://bazarhd.online:80/307210113622/307210113622/81935?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",SUPER SPORT 7 4K
+http://bazarhd.online:80/307210113622/307210113622/81933?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",SUPER SPORT 7 HD
+http://bazarhd.online:80/307210113622/307210113622/81934?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Sport Kosova 1 FHD
+http://185.63.254.40:80/912461531477289/840194034422592/118041?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Sport Kosova News HD
+http://185.63.254.40:80/912461531477289/840194034422592/118043?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Super Sport 1 FHD
+http://iptv.re-stream.tv:7711/Carlos/12345/17675?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Super Sport 1 FHD
+http://185.63.254.40:80/912461531477289/840194034422592/360087?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Super Sport 1 HD
+http://185.63.254.40:80/912461531477289/840194034422592/118056?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Super Sport 1 news HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/34?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Super Sport 2
+http://mail.vipmek.com:8800/565656/565656/6382?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Super Sport 2 FHD
+http://185.63.254.40:80/912461531477289/840194034422592/360088?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Super Sport 2 HD
+http://iptv.re-stream.tv:7711/Carlos/12345/17676?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Super Sport 2 HD
+http://185.63.254.40:80/912461531477289/840194034422592/118057?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Super Sport 3 FHD
+http://185.63.254.40:80/912461531477289/840194034422592/360089?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Super Sport 3 HD
+http://iptv.re-stream.tv:7711/Carlos/12345/17677?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Super Sport 3 HD
+http://185.63.254.40:80/912461531477289/840194034422592/118058?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Super Sport 4 FHD
+http://185.63.254.40:80/912461531477289/840194034422592/360090?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Super Sport 4 HD
+http://iptv.re-stream.tv:7711/Carlos/12345/17678?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Super Sport 5 HD
+http://185.63.254.40:80/912461531477289/840194034422592/118060?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Super Sport 6 FHD
+http://185.63.254.40:80/912461531477289/840194034422592/118061?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Super Sport 6 HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/230?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Super Sport News FHD
+http://185.63.254.40:80/912461531477289/840194034422592/118063?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",TRING SPORT NEWS HD
+http://bazarhd.online:80/307210113622/307210113622/81930?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Tring Sport 2 HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/31?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",Tring Sport News HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/29?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AL" tvg-logo="" group-title="Sport",super Sport 5 HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/37?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DZ" tvg-logo="" group-title="Sport",BEIN  SPORT HD
+http://rv.therevenge.co:80/1234560/1234560/78620?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DZ" tvg-logo="" group-title="Sport",BEIN SPORTS 1 HD
+http://rv.therevenge.co:80/1234560/1234560/78617?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DZ" tvg-logo="" group-title="Sport",BEIN SPORTS 1 UHD
+http://rv.therevenge.co:80/1234560/1234560/78637?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DZ" tvg-logo="" group-title="Sport",BEIN SPORTS 11 HD EN
+http://rv.therevenge.co:80/1234560/1234560/78607?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DZ" tvg-logo="" group-title="Sport",BEIN SPORTS 2 HD
+http://rv.therevenge.co:80/1234560/1234560/78616?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DZ" tvg-logo="" group-title="Sport",BEIN SPORTS 3
+http://rv.therevenge.co:80/1234560/1234560/78561?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DZ" tvg-logo="" group-title="Sport",BEIN SPORTS 3 HD
+http://rv.therevenge.co:80/1234560/1234560/78615?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DZ" tvg-logo="" group-title="Sport",BEIN SPORTS 4 HDÂ˛
+http://rv.therevenge.co:80/1234560/1234560/78597?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DZ" tvg-logo="" group-title="Sport",BEIN SPORTS 5 SD
+http://rv.therevenge.co:80/1234560/1234560/78576?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DZ" tvg-logo="" group-title="Sport",BEIN SPORTS 6 HDÂ˛
+http://rv.therevenge.co:80/1234560/1234560/78595?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DZ" tvg-logo="" group-title="Sport",BEIN SPORTS NEWS SD
+http://rv.therevenge.co:80/1234560/1234560/78582?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DZ" tvg-logo="" group-title="Sport",BEIN SPORTS SD
+http://rv.therevenge.co:80/1234560/1234560/78583?checkedby:hlscat.com
+#EXTINF:0 tvg-country="DZ" tvg-logo="" group-title="Sport",ONTIME  SPORTS 3 HD
+http://rv.therevenge.co:80/1234560/1234560/78600?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",ABU DHABI SPORTS 1 HD
+http://bazarhd.online:80/307210113622/307210113622/86493?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",AL IRAQIA SPORT
+http://bazarhd.online:80/307210113622/307210113622/86473?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",BEIN  SPORT HD
+http://bazarhd.online:80/307210113622/307210113622/78620?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",BEIN SPORTS 10 HD OLYMPIC
+http://bazarhd.online:80/307210113622/307210113622/78608?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",BEIN SPORTS 10 SD OLYMPIC
+http://bazarhd.online:80/307210113622/307210113622/78571?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",BEIN SPORTS 10 UHD OLYMPIC
+http://bazarhd.online:80/307210113622/307210113622/78628?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",BEIN SPORTS 11
+http://bazarhd.online:80/307210113622/307210113622/78553?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",BEIN SPORTS 11 HD EN
+http://bazarhd.online:80/307210113622/307210113622/78607?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",BEIN SPORTS 11 HDÂ˛
+http://bazarhd.online:80/307210113622/307210113622/78590?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",BEIN SPORTS 11 SD
+http://bazarhd.online:80/307210113622/307210113622/78570?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",BEIN SPORTS 11 UHD EN
+http://bazarhd.online:80/307210113622/307210113622/78627?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",BEIN SPORTS 12 HD EN
+http://bazarhd.online:80/307210113622/307210113622/78606?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",BEIN SPORTS 12 UHD EN
+http://bazarhd.online:80/307210113622/307210113622/78626?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",BEIN SPORTS 13 HD
+http://bazarhd.online:80/307210113622/307210113622/78605?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",BEIN SPORTS 13 SD
+http://bazarhd.online:80/307210113622/307210113622/78568?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",BEIN SPORTS 13 UHD
+http://bazarhd.online:80/307210113622/307210113622/78625?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",BEIN SPORTS 14 HD
+http://bazarhd.online:80/307210113622/307210113622/78604?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",BEIN SPORTS 14 SD
+http://bazarhd.online:80/307210113622/307210113622/78567?checkedby:hlscat.com
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Sport",BEIN SPORTS 15 HD
+http://bazarhd.online:80/307210113622/307210113622/78603?checkedby:hlscat.com 
+
+
+
+
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",1+1
+http://epsilon-c1.liux.tv/ua-1plus1/mono.m3u8?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",24 Kitchen
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1253?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",24 đúđ║ĐÇđ░đŞđŻđ░
+http://streamvideol1.luxnet.ua/news24/smil:news24.stream.smil/chunklist.m3u8?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",ANIMAL PLANET
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1150?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",ANIMAL PLANET
+http://bazarhd.online:80/307210113622/307210113622/85275?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",ANIMAL PLANET HD
+http://bazarhd.online:80/307210113622/307210113622/85274?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 1 BIH
+http://bazarhd.online:80/307210113622/307210113622/85188?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 1 SR
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/424?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 2 HD (HR)
+http://bazarhd.online:80/307210113622/307210113622/85182?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 2 HD (SR)
+http://bazarhd.online:80/307210113622/307210113622/85186?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 2 SR
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/425?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 3 HD (HR)
+http://bazarhd.online:80/307210113622/307210113622/85181?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 3 HD (SR)
+http://bazarhd.online:80/307210113622/307210113622/85185?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 3 SR
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/426?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 4 SR
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/427?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 5 HD (HR)
+http://bazarhd.online:80/307210113622/307210113622/85179?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",ARENA SPORT 6 HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1298?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",AXN ADRIA
+http://bazarhd.online:80/307210113622/307210113622/85287?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",Al Jaseera TV HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/170?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",Arena Sport 1 HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/48?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",Arena Sport 2 HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/49?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",Arena Sport 3 HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/50?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",Arena Sport 4 HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/51?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",Atameken Business Channel HD
+http://live.atameken.cdnvideo.ru/atameken/atameken.sdp/playlist.m3u8?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",B 92
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/128?checkedby:hlscat.com
+#EXTINF:0 tvg-country="BA" tvg-logo="https://i.imgur.com/fdd1oQP.png" group-title="Undefined",B1 TV,BA | B1 TV
+http://wowza.bihnet.net:88/hls/b1-live.m3u8?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",BANOVINA TV
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1148?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",BHT 1
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/136?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",BN MUSIC
+http://bazarhd.online:80/307210113622/307210113622/85218?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",BN SAT
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/169?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",CBS REALITY
+http://bazarhd.online:80/307210113622/307210113622/85264?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",CINEMAX 1
+http://bazarhd.online:80/307210113622/307210113622/85292?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",CINEMAX 1 HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1138?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",CINEMAX 2
+http://bazarhd.online:80/307210113622/307210113622/85291?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",CINEMAX 2 HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1137?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",CINESTAR ACTION TV
+http://bazarhd.online:80/307210113622/307210113622/85296?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",CINESTAR PREMIERE 2
+http://bazarhd.online:80/307210113622/307210113622/85293?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",CINESTAR TV1
+http://bazarhd.online:80/307210113622/307210113622/85297?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",CITY TV (BH)
+http://bazarhd.online:80/307210113622/307210113622/85204?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",CMC MUSIC
+http://bazarhd.online:80/307210113622/307210113622/85217?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",CineStar premiere 1
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/268?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",CineStar premiere 2
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/269?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",DA VINCI LEARNING
+http://bazarhd.online:80/307210113622/307210113622/85267?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",DISCOVERY
+http://bazarhd.online:80/307210113622/307210113622/85272?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",DISCOVERY ID
+http://bazarhd.online:80/307210113622/307210113622/85270?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",DM Sat
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1522?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",DOKU TV
+http://bazarhd.online:80/307210113622/307210113622/85261?checkedby:hlscat.com
+#EXTINF:0 tvg-country="HR" tvg-logo="" group-title="Undefined",DOMA TV
+http://bazarhd.online:80/307210113622/307210113622/158558?checkedby:hlscat.com
+#EXTINF:0 tvg-country="HR" tvg-logo="" group-title="Undefined",DOMA TV HD
+http://bazarhd.online:80/307210113622/307210113622/158559?checkedby:hlscat.com
+#EXTINF:0 tvg-country="ME" tvg-logo="" group-title="Undefined",DUBAI ONE
+http://dminnvll.cdn.mangomolo.com/dubaione/smil:dubaione.stream.smil/chunklist_b1300000.m3u8?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",DUGA TV
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/2006?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",EPIC DRAMA HD
+http://bazarhd.online:80/307210113622/307210113622/85301?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",EUROSPORT 1 HD
+http://bazarhd.online:80/307210113622/307210113622/85178?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Sport",EUROSPORT 2 HD
+http://bazarhd.online:80/307210113622/307210113622/85177?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",FIGHT NETWORK
+http://bazarhd.online:80/307210113622/307210113622/85176?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",FIGHTBOX
+http://bazarhd.online:80/307210113622/307210113622/85175?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",FILMBOX
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1334?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",FOOD NETWORK
+http://bazarhd.online:80/307210113622/307210113622/85245?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",FOX CRIME
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1141?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",FOX CRIME
+http://bazarhd.online:80/307210113622/307210113622/85279?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",FOX CRIME FHD
+http://bazarhd.online:80/307210113622/307210113622/85283?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",FOX HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1139?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",FOX LIFE
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1140?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",FOX LIFE FHD
+http://bazarhd.online:80/307210113622/307210113622/85284?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",FOX MOVIES FHD
+http://bazarhd.online:80/307210113622/307210113622/85282?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Music",First Music channel HD
+http://hz1.teleport.cc/HLS/HD.m3u8?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",GLAS DRINE
+http://bazarhd.online:80/307210113622/307210113622/85213?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",GRAND
+http://bazarhd.online:80/307210113622/307210113622/85224?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",GRAND 2
+http://bazarhd.online:80/307210113622/307210113622/85225?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",Gakku
+https://sc.id-tv.kz:443/Gakku.m3u8?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",Grand TV
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/430?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",Grand TV 2
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/432?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",HAYAT  FOLK
+http://bazarhd.online:80/307210113622/307210113622/85226?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",HBO 2 HD
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/1143?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",HBO 2 HD
+http://bazarhd.online:80/307210113622/307210113622/85303?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",HBO 3
+http://bazarhd.online:80/307210113622/307210113622/85302?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",HBO HD
+http://bazarhd.online:80/307210113622/307210113622/85304?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",HDL HD
+https://sc.id-tv.kz/hdl_34_35.m3u8?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",HISTORY
+http://bazarhd.online:80/307210113622/307210113622/85246?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",HISTORY 2
+http://bazarhd.online:80/307210113622/307210113622/85247?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",HISTORY 2 HD
+http://bazarhd.online:80/307210113622/307210113622/85248?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",HISTORY HD
+http://bazarhd.online:80/307210113622/307210113622/85249?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",HNTV (HR)
+http://bazarhd.online:80/307210113622/307210113622/85207?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",HRT 1
+http://195.29.70.82/PLTV/88888888/224/3221226139/04.m3u8?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",HRT 1
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/163?checkedby:hlscat.com
+#EXTINF:0 tvg-country="HR" tvg-logo="" group-title="Undefined",HRT 1
+http://bazarhd.online:80/307210113622/307210113622/158570?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="https://i.imgur.com/PxBCBms.png" group-title="Undefined",HRT 1 (Opt-1)
+http://195.29.70.84/PLTV/88888888/224/3221226139/index.m3u8?checkedby:hlscat.com
+#EXTINF:0 tvg-country="HR" tvg-logo="" group-title="Undefined",HRT 1 HD
+http://bazarhd.online:80/307210113622/307210113622/158569?checkedby:hlscat.com
+#EXTINF:0 tvg-country="HR" tvg-logo="https://i.imgur.com/W3FBVwT.png" group-title="Undefined",HRT 1 [NO KODI]
+http://195.29.70.67/PLTV/88888888/224/3221226139/01.m3u8?checkedby:iptvsat.com&checkedby:hlscat.com
+#EXTINF:0 tvg-country="HR" tvg-logo="https://i.imgur.com/W3FBVwT.png" group-title="Undefined",HRT 1 [NO KODI]
+http://195.29.70.84/PLTV/88888888/224/3221226139/04.m3u8?checkedby:iptvsat.com&checkedby:hlscat.com
+#EXTINF:0 tvg-country="HR" tvg-logo="https://i.imgur.com/W3FBVwT.png" group-title="Undefined",HRT 1 [NO KODI]
+http://195.29.70.67/PLTV/88888888/224/3221226139/index.m3u8?checkedby:iptvsat.com&checkedby:hlscat.com
+#EXTINF:0 tvg-country="HR" tvg-logo="https://i.imgur.com/W3FBVwT.png" group-title="Undefined",HRT 1 [NO KODI]
+http://195.29.70.67/PLTV/88888888/224/3221226139/03.m3u8?checkedby:iptvsat.com&checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",HRT 2
+http://cobra2016.dyndns.tv:1947/enjoyimcob_SkYpE/8LftLI6H71/164?checkedby:hlscat.com
+#EXTINF:0 tvg-country="" tvg-logo="https://i.imgur.com/PxBCBms.png" group-title="Undefined",HRT 2 (Opt-2)
+http://195.29.70.67/PLTV/88888888/224/3221226140/index.m3u8?checkedby:hlscat.com
+#EXTINF:0 tvg-country="HR" tvg-logo="" group-title="Undefined",HRT 2 HD
+http://bazarhd.online:80/307210113622/307210113622/158567?checkedby:hlscat.com
+#EXTINF:0 tvg-country="HR" tvg-logo="https://i.imgur.com/7swOkC3.png" group-title="Undefined",HRT 2 [NO KODI]
+http://195.29.70.82/PLTV/88888888/224/3221226140/index.m3u8?checkedby:iptvsat.com&checkedby:hlscat.com
+#EXTINF:0 tvg-country="HR" tvg-logo="https://i.imgur.com/7swOkC3.png" group-title="Undefined",HRT 2 [NO KODI]
+http://195.29.70.82/PLTV/88888888/224/3221226140/04.m3u8?checkedby:iptvsat.com&checkedby:hlscat.com
+#EXTINF:0 tvg-country="HR" tvg-logo="https://i.imgur.com/7swOkC3.png" group-title="Undefined",HRT 2 [NO KODI]
+http://195.29.70.67/PLTV/88888888/224/3221226140/03.m3u8?checkedby:iptvsat.com&checkedby:hlscat.com
+#EXTINF:0 tvg-country="HR" tvg-logo="https://i.imgur.com/7swOkC3.png" group-title="Undefined",HRT 2 [NO KODI]
+http://195.29.70.67/PLTV/88888888/224/3221226140/02.m3u8?checkedby:iptvsat.com&checkedby:hlscat.com
+#EXTINF:0 tvg-country="HR" tvg-logo="https://i.imgur.com/7swOkC3.png" group-title="Undefined",HRT 2 [NO KODI]
+http://195.29.70.67/PLTV/88888888/224/3221226140/01.m3u8?checkedby:iptvsat.com&checkedby:hlscat.com 
+
+
 #EXTINF:0,SK 1
 http://rexshx.com:25461/live/lista60/Gu78JDA5d6/319.ts
 #EXTINF:0,SK1 SRB
